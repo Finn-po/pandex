@@ -57,7 +57,7 @@
     text-decoration:none;
     cursor:pointer;
   }
-  .nav-logo-wrap img { height:48px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
+  .nav-logo-wrap img { height:38px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
   .nav-brand {
     font-family:'Orbitron',sans-serif;
     font-size:1.25rem; font-weight:900;
@@ -151,7 +151,7 @@
   }
 
   .hero-logo {
-    width: clamp(280px, 50vw, 560px);
+    width: clamp(190px, 34vw, 380px);
     filter: drop-shadow(0 0 40px rgba(0,200,255,0.7)) drop-shadow(0 0 80px rgba(139,47,201,0.5));
     animation: logoPulse 3s ease-in-out infinite;
     cursor: pointer;
@@ -409,7 +409,7 @@
     padding:48px 5% 36px;
     text-align:center;
   }
-  .footer-logo { height:64px; margin-bottom:16px; cursor:pointer;
+  .footer-logo { height:48px; margin-bottom:16px; cursor:pointer;
     filter: drop-shadow(0 0 12px rgba(0,200,255,0.4)); }
   .footer-brand { display:none; }
   .footer-links { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
@@ -650,6 +650,7 @@
     <a href="faq.html">FAQ</a>
     <a href="roadmap.html">Roadmap</a>
     <a href="submit.html">Submit</a>
+    <a href="contact.html">Contact</a>
     <a onclick="window.open('https://discord.gg/SyTpDNjmaG','_blank')" href="#">Discord</a>
     <a onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')" href="#">TikTok</a>
   </div>
@@ -806,6 +807,17 @@
     <div class="install-step"><div class="step-num">1</div><div class="step-content"><div class="step-title">Phase 1: Preview Launch</div><div class="step-desc">Original map background previews, legal pages, creator submission guidance and community links.</div></div></div>
     <div class="install-step"><div class="step-num">2</div><div class="step-content"><div class="step-title">Phase 2: Downloads</div><div class="step-desc">Download access after the content workflow, rights checks and takedown process are ready.</div></div></div>
     <div class="install-note">See the full plan here: <a href="roadmap.html" style="color:var(--blue);">Open Pandex Roadmap</a>.</div>
+  </div>
+</section>
+
+<section id="contact-teaser">
+  <h2 class="section-title">Contact & Community</h2>
+  <div class="section-divider"></div>
+  <p class="section-sub">One place for creators, visitors and rights holders to reach Pandex.</p>
+  <div class="install-wrap">
+    <div class="install-step"><div class="step-num">✉</div><div class="step-content"><div class="step-title">Creator Submissions</div><div class="step-desc">Creators can send original map concepts, preview images and project details through the submission guide.</div></div></div>
+    <div class="install-step"><div class="step-num">⚖</div><div class="step-content"><div class="step-title">Rights & Takedown Contact</div><div class="step-desc">Rights holders can use the takedown process if content appears on Pandex that should not be there.</div></div></div>
+    <div class="install-note">Open the full contact overview here: <a href="contact.html" style="color:var(--blue);">Contact Pandex</a>.</div>
   </div>
 </section>
 
@@ -1118,7 +1130,14 @@
 
 <script>
 document.addEventListener("DOMContentLoaded",function(){
-
+  if (window.location.pathname.endsWith("/") || window.location.pathname.endsWith("index.html") || window.location.pathname === "") {
+    if (window.location.hash === "#submit") {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      window.scrollTo(0, 0);
+    } else if (!window.location.hash) {
+      setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    }
+  }
 });
 </script>
 </body>
