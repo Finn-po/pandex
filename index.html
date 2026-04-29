@@ -57,7 +57,7 @@
     text-decoration:none;
     cursor:pointer;
   }
-  .nav-logo-wrap img { height:29px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
+  .nav-logo-wrap img { height:22px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
   .nav-brand {
     font-family:'Orbitron',sans-serif;
     font-size:1.25rem; font-weight:900;
@@ -65,14 +65,47 @@
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     letter-spacing:2px;
   }
-  .nav-links { display:flex; gap:32px; }
-  .nav-links a {
-    color: rgba(240,244,255,0.7);
-    text-decoration:none; font-weight:600; font-size:.9rem;
-    letter-spacing:1px; text-transform:uppercase;
-    transition: color .2s;
+  .menu-toggle {
+    width:46px; height:46px;
+    border:1px solid rgba(0,200,255,0.28);
+    background:rgba(255,255,255,0.04);
+    border-radius:12px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:5px; cursor:pointer;
+    transition: border-color .2s, background .2s, box-shadow .2s;
   }
-  .nav-links a:hover { color: var(--blue); }
+  .menu-toggle:hover { border-color:rgba(0,200,255,0.75); background:rgba(0,200,255,0.08); box-shadow:0 0 22px rgba(0,200,255,0.18); }
+  .menu-toggle span { width:22px; height:2px; border-radius:99px; background:var(--white); box-shadow:0 0 8px rgba(0,200,255,0.4); }
+  .menu-panel {
+    position:fixed; top:0; right:0; z-index:140;
+    width:min(390px, 88vw); height:100vh;
+    background:rgba(7,12,22,0.98);
+    border-left:1px solid rgba(0,200,255,0.2);
+    box-shadow:-30px 0 80px rgba(0,0,0,0.55), 0 0 60px rgba(0,200,255,0.08);
+    backdrop-filter:blur(20px);
+    transform:translateX(105%);
+    transition:transform .25s ease;
+    padding:26px 26px 34px;
+    display:flex; flex-direction:column;
+  }
+  .menu-panel.active { transform:translateX(0); }
+  .menu-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
+  .menu-head img { height:26px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
+  .menu-close { width:42px; height:42px; border-radius:50%; border:1px solid rgba(240,244,255,0.14); background:rgba(255,255,255,0.05); color:#fff; cursor:pointer; font-size:1.2rem; }
+  .menu-links { display:flex; flex-direction:column; gap:8px; }
+  .menu-links a {
+    color:rgba(240,244,255,0.78); text-decoration:none;
+    padding:14px 14px; border-radius:12px;
+    font-family:'Orbitron',sans-serif; font-size:.85rem; font-weight:800;
+    letter-spacing:1.5px; text-transform:uppercase;
+    border:1px solid transparent;
+    transition:background .2s, border-color .2s, color .2s, transform .2s;
+  }
+  .menu-links a:hover { color:#fff; background:rgba(0,200,255,0.08); border-color:rgba(0,200,255,0.24); transform:translateX(-2px); }
+  .menu-divider { height:1px; background:linear-gradient(90deg, transparent, rgba(0,200,255,0.35), transparent); margin:12px 0; }
+  .menu-note { margin-top:auto; color:rgba(240,244,255,0.42); font-size:.78rem; line-height:1.55; }
+  .menu-backdrop { position:fixed; inset:0; z-index:130; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px); display:none; }
+  .menu-backdrop.active { display:block; }
 
   /* ── COMING SOON BADGE ── */
   .coming-soon-badge {
@@ -151,7 +184,7 @@
   }
 
   .hero-logo {
-    width: clamp(142px, 25.5vw, 285px);
+    width: clamp(106px, 19vw, 214px);
     filter: drop-shadow(0 0 40px rgba(0,200,255,0.7)) drop-shadow(0 0 80px rgba(139,47,201,0.5));
     animation: logoPulse 3s ease-in-out infinite;
     cursor: pointer;
@@ -409,7 +442,7 @@
     padding:48px 5% 36px;
     text-align:center;
   }
-  .footer-logo { height:36px; margin-bottom:16px; cursor:pointer;
+  .footer-logo { height:27px; margin-bottom:16px; cursor:pointer;
     filter: drop-shadow(0 0 12px rgba(0,200,255,0.4)); }
   .footer-brand { display:none; }
   .footer-links { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
@@ -454,7 +487,8 @@
 
   /* ── RESPONSIVE ── */
   @media(max-width:640px){
-    .nav-links { display:none; }
+    nav { height:64px; padding:0 4%; }
+    .menu-toggle { width:42px; height:42px; }
     .hero-stats { gap:24px; }
   }
 
@@ -552,11 +586,9 @@
 
   /* ── COOKIE CONSENT (centered blocking modal) ── */
   #cookieBanner {
-    position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(10px);
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px;
+    position: fixed; left:20px; right:20px; bottom:20px; z-index:9999;
+    display:flex; justify-content:center;
+    pointer-events:none;
     animation: cookieFadeIn 0.35s ease;
   }
   #cookieBanner.hidden { display: none; }
@@ -566,11 +598,12 @@
     border: 1px solid rgba(0,200,255,0.4);
     border-radius: 18px;
     padding: 32px 30px 28px;
-    max-width: 480px; width: 100%;
+    max-width: 720px; width: 100%;
     max-height: 90vh; overflow-y: auto;
     text-align: center;
     box-shadow: 0 0 60px rgba(0,200,255,0.25), 0 0 100px rgba(139,47,201,0.18), 0 20px 60px rgba(0,0,0,0.7);
     animation: cookieSlideIn 0.4s cubic-bezier(0.16,1,0.3,1);
+    pointer-events:auto;
   }
   @keyframes cookieSlideIn {
     from { transform: translateY(20px) scale(0.96); opacity: 0; }
@@ -641,21 +674,40 @@
 <body>
 
 <nav>
-  <a class="nav-logo-wrap" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+  <a class="nav-logo-wrap" href="index.html" aria-label="PANDEX home">
     <img src="images/logo.png" alt="PANDEX">
   </a>
-  <div class="nav-links">
-    <a href="#maps">Maps</a>
-    <a href="creator-brokehalla.html">Creator</a>
-    <a href="about.html">About</a>
-    <a href="faq.html">FAQ</a>
-    <a href="roadmap.html">Roadmap</a>
-    <a href="submit.html">Submit</a>
-    <a href="contact.html">Contact</a>
-    <a onclick="window.open('https://discord.gg/SyTpDNjmaG','_blank')" href="#">Discord</a>
-    <a onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')" href="#">TikTok</a>
-  </div>
+  <button class="menu-toggle" onclick="openMenu()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
+<aside id="menuPanel" class="menu-panel" aria-label="PANDEX navigation">
+  <div class="menu-head">
+    <img src="images/logo.png" alt="PANDEX">
+    <button class="menu-close" onclick="closeMenu()" aria-label="Close navigation menu">â</button>
+  </div>
+  <div class="menu-links">
+    <a href="index.html#maps" onclick="closeMenu()">Maps</a>
+    <a href="creator-brokehalla.html" onclick="closeMenu()">Creator</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="faq.html" onclick="closeMenu()">FAQ</a>
+    <a href="roadmap.html" onclick="closeMenu()">Roadmap</a>
+    <a href="submit.html" onclick="closeMenu()">Submit</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+    <div class="menu-divider"></div>
+    <a href="privacy.html" onclick="closeMenu()">Privacy</a>
+    <a href="impressum.html" onclick="closeMenu()">Impressum</a>
+    <a href="terms.html" onclick="closeMenu()">Terms</a>
+    <a href="takedown.html" onclick="closeMenu()">Takedown</a>
+    <div class="menu-divider"></div>
+    <a href="https://discord.gg/SyTpDNjmaG" target="_blank" onclick="closeMenu()">Discord</a>
+    <a href="https://www.tiktok.com/@brokehalla" target="_blank" onclick="closeMenu()">TikTok</a>
+  </div>
+  <div class="menu-note">PANDEX is an independent fan-content platform. Current public version shows original map previews.</div>
+</aside>
+
 
 <section class="hero">
   <div class="hero-bg-orb orb1"></div>
@@ -880,8 +932,8 @@
     <a href="https://discord.gg/SyTpDNjmaG" target="_blank">Discord</a>
   </div>
   <div class="footer-links" style="margin-top:16px;">
-    <a onclick="openLegal('privacy')" style="cursor:pointer;">Datenschutz</a>
-    <a onclick="openLegal('imprint')" style="cursor:pointer;">Impressum</a>
+    <a href="privacy.html">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
     <a href="terms.html">Terms</a>
     <a href="takedown.html">Takedown</a>
     <a onclick="showConsentModal()" style="cursor:pointer;">Cookie-Einstellungen</a>
@@ -893,7 +945,19 @@
 </footer>
 
 <script>
-  function openPreview(name, src) {
+  function openMenu() {
+    document.getElementById('menuPanel').classList.add('active');
+    document.getElementById('menuBackdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    document.getElementById('menuPanel').classList.remove('active');
+    document.getElementById('menuBackdrop').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function openPreview
+(name, src) {
     document.getElementById('imgPreviewImg').src = src;
     document.getElementById('imgPreviewLabel').textContent = name;
     document.getElementById('imgPreviewOverlay').classList.add('active');
@@ -904,7 +968,7 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') { closePreview(); closeLegal(); }
+    if(e.key === 'Escape') { closePreview(); closeLegal(); closeMenu(); }
   });
 
   // ── COOKIE CONSENT (GDPR / EU) ──
@@ -1026,7 +1090,7 @@
       + '<h3>5. Availability</h3>'
       + '<p>Pandex may change, pause or discontinue parts of the website at any time. Preview images and downloads may be added, changed or removed.</p>'
       + '<h3>6. Contact</h3>'
-      + '<p>Questions about these terms can be sent to <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a>.</p>'
+      + '<p>Questions about these terms can be sent to <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a>.</p>',
 
     takedown: '<h2>Takedown Policy</h2>'
       + '<h3>1. Rights Holder Requests</h3>'
@@ -1044,7 +1108,7 @@
       + '<h3>4. Creator Response</h3>'
       + '<p>If necessary, Pandex may contact the creator for clarification or proof of rights before deciding whether content remains online.</p>'
       + '<h3>5. Contact</h3>'
-      + '<p>Takedown requests should be sent to <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a> with the subject <strong>Pandex Takedown Request</strong>.</p>'
+      + '<p>Takedown requests should be sent to <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a> with the subject <strong>Pandex Takedown Request</strong>.</p>',
 
     imprint: '<h2>Impressum</h2>'
 
@@ -1130,12 +1194,12 @@
     <div class="cookie-title">We Use Cookies / Wir nutzen Cookies</div>
     <div class="cookie-text">
       Diese Website verwendet technisch notwendige Cookies. Mit Ihrer Einwilligung setzen wir zus&auml;tzlich Cookies und &auml;hnliche Technologien f&uuml;r <strong>Reichweitenmessung und personalisierte Werbung</strong> ein (z.&nbsp;B. Google AdSense, HilltopAds, TikTok Pixel &mdash; geplant). Sie k&ouml;nnen Ihre Einwilligung jederzeit widerrufen. Details in unserer
-      <a onclick="openLegal('privacy')">Datenschutzerkl&auml;rung</a> und im <a onclick="openLegal('imprint')">Impressum</a>.
+      <a href="privacy.html">Datenschutzerkl&auml;rung</a> und im <a href="impressum.html">Impressum</a>.
     </div>
     <div class="cookie-btns">
       <button class="btn-cookie-accept" onclick="acceptCookies()">✓ Alle akzeptieren</button>
       <button class="btn-cookie-reject" onclick="rejectCookies()">Nur notwendige</button>
-      <button class="btn-cookie-settings" onclick="openLegal('privacy')">Mehr erfahren</button>
+      <button class="btn-cookie-settings" onclick="window.location.href='privacy.html'">Mehr erfahren</button>
     </div>
   </div>
 </div>
