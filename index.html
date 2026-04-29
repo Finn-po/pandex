@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="BROKEHALLA – Free custom Brawlhalla maps. Download unique map skins created by the community. Install guide included.">
-<meta name="keywords" content="Brawlhalla, custom maps, free download, map skins, BROKEHALLA">
-<title>BROKEHALLA – Free Custom Brawlhalla Maps</title>
+<meta name="description" content="PANDEX – Modding platform for original game content. Download free custom Brawlhalla maps and other community-made content. Install guides included.">
+<meta name="keywords" content="Pandex, modding, custom maps, Brawlhalla mods, free download, game mods, community creators">
+<title>PANDEX – Modding Platform for Original Game Content</title>
+<link rel="icon" type="image/png" href="images/pandex-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -56,7 +57,7 @@
     text-decoration:none;
     cursor:pointer;
   }
-  .nav-logo-wrap img { height:42px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
+  .nav-logo-wrap img { height:48px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
   .nav-brand {
     font-family:'Orbitron',sans-serif;
     font-size:1.25rem; font-weight:900;
@@ -150,7 +151,7 @@
   }
 
   .hero-logo {
-    width: clamp(160px, 25vw, 280px);
+    width: clamp(280px, 50vw, 560px);
     filter: drop-shadow(0 0 40px rgba(0,200,255,0.7)) drop-shadow(0 0 80px rgba(139,47,201,0.5));
     animation: logoPulse 3s ease-in-out infinite;
     cursor: pointer;
@@ -408,14 +409,9 @@
     padding:48px 5% 36px;
     text-align:center;
   }
-  .footer-logo { height:52px; margin-bottom:16px; cursor:pointer;
+  .footer-logo { height:64px; margin-bottom:16px; cursor:pointer;
     filter: drop-shadow(0 0 12px rgba(0,200,255,0.4)); }
-  .footer-brand {
-    font-family:'Orbitron',sans-serif; font-weight:900; font-size:1.1rem;
-    background:linear-gradient(90deg,var(--blue),var(--violet));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    letter-spacing:3px; margin-bottom:20px;
-  }
+  .footer-brand { display:none; }
   .footer-links { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
   .footer-links a { color:rgba(240,244,255,.5); text-decoration:none; font-size:.85rem; font-weight:600; letter-spacing:1px; transition:color .2s; }
   .footer-links a:hover { color:var(--blue); }
@@ -645,9 +641,8 @@
 <body class="cookie-locked">
 
 <nav>
-  <a class="nav-logo-wrap" onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')" href="#">
-    <img src="images/logo.png" alt="BROKEHALLA">
-    <span class="nav-brand">BROKEHALLA</span>
+  <a class="nav-logo-wrap" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+    <img src="images/logo.png" alt="PANDEX">
   </a>
   <div class="nav-links">
     <a href="#maps">Maps</a>
@@ -660,24 +655,24 @@
 <section class="hero">
   <div class="hero-bg-orb orb1"></div>
   <div class="hero-bg-orb orb2"></div>
-  <img class="hero-logo" src="images/logo.png" alt="BROKEHALLA"
-       onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')">
-  <p class="hero-eyebrow">⚡ Free Custom Brawlhalla Maps</p>
+  <img class="hero-logo" src="images/logo.png" alt="PANDEX"
+       onclick="window.scrollTo({top:document.getElementById('maps').offsetTop-60,behavior:'smooth'})">
+  <p class="hero-eyebrow">⚡ Modding Platform for Original Game Content</p>
   <div class="coming-soon-badge">
     <span class="cs-pulse"></span>
-    <span class="cs-text">🚀 MAPS DROP SOON — STAY TUNED</span>
+    <span class="cs-text">🚀 FIRST DROP SOON — STAY TUNED</span>
   </div>
-  <h1 class="hero-title">Upgrade Your<br>Brawlhalla Maps</h1>
-  <p class="hero-sub">Exclusive, AI-supported map skins for Brawlhalla — completely free. Stand out every match with premium custom visuals.<br><span style="display:block;text-align:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:1rem;letter-spacing:3px;background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:10px;">SKINS SOON!</span></p>
-  <a class="hero-cta" href="#maps">Download Free Maps ↓</a>
+  <h1 class="hero-title">Original Mods.<br>Free to Download.</h1>
+  <p class="hero-sub">Pandex hosts original custom content from independent creators — completely free. Currently featuring map backgrounds for Brawlhalla, more games coming soon.<br><span style="display:block;text-align:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:.95rem;letter-spacing:3px;background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:10px;">FEATURED CREATOR: BROKEHALLA</span></p>
+  <a class="hero-cta" href="#maps">Browse Free Maps ↓</a>
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num">FREE</div>
-      <div class="hero-stat-label">All Maps</div>
+      <div class="hero-stat-label">All Mods</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">100%</div>
-      <div class="hero-stat-label">Custom</div>
+      <div class="hero-stat-label">Original</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">1-Click</div>
@@ -687,9 +682,9 @@
 </section>
 
 <section id="maps">
-  <h2 class="section-title">Free Map Downloads</h2>
+  <h2 class="section-title">Brawlhalla Maps by Brokehalla</h2>
   <div class="section-divider"></div>
-  <p class="section-sub">Click Download — watch a short ad — your file unlocks instantly.</p>
+  <p class="section-sub">Original custom map backgrounds for Brawlhalla — created by independent creator <strong style="color:var(--blue);">Brokehalla</strong>. Click Download — watch a short ad — your file unlocks instantly.</p>
 
   <div class="maps-grid">
 
@@ -831,7 +826,7 @@
         The maps will be available for download <strong style="color:var(--blue);">very soon</strong>!
       </div>
       <div style="font-size:.82rem; color:rgba(240,244,255,.5); line-height:1.6; margin-bottom:24px;">
-        Follow <a href="https://www.tiktok.com/@brokehalla" target="_blank" style="color:var(--blue); text-decoration:none; font-weight:700;">@brokehalla</a> on TikTok to be the first to know when downloads go live.
+        Follow <a href="https://www.tiktok.com/@brokehalla" target="_blank" style="color:var(--blue); text-decoration:none; font-weight:700;">@brokehalla</a> on TikTok or join our <a href="https://discord.gg/SyTpDNjmaG" target="_blank" style="color:var(--blue); text-decoration:none; font-weight:700;">Discord</a> to be the first to know when downloads go live.
       </div>
       <button class="btn-modal-download" style="opacity:1;" onclick="closeAd()">
         Got it ✓
@@ -884,15 +879,19 @@
 </section>
 
 <footer>
-  <img class="footer-logo" src="images/logo.png" alt="BROKEHALLA"
-       onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')">
-  <div class="footer-brand">BROKEHALLA</div>
+  <img class="footer-logo" src="images/logo.png" alt="PANDEX"
+       onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <div class="footer-brand">PANDEX</div>
+  <div style="font-size:.85rem; color:rgba(240,244,255,.55); margin-bottom:18px; max-width:520px; margin-left:auto; margin-right:auto;">
+    Hosting platform for original game mods.<br>
+    Featuring custom map backgrounds by independent creators.
+  </div>
   <div class="footer-cta-row">
     <a class="tiktok-btn" href="https://www.tiktok.com/@brokehalla" target="_blank">
-      <span class="tiktok-icon">♪</span> Follow on TikTok
+      <span class="tiktok-icon">♪</span> Follow Brokehalla on TikTok
     </a>
     <a class="discord-btn" href="https://discord.gg/SyTpDNjmaG" target="_blank">
-      <span class="discord-icon">💬</span> Support &amp; Community
+      <span class="discord-icon">💬</span> Join the Community
     </a>
   </div>
   <div class="footer-links">
@@ -906,7 +905,7 @@
     <a onclick="openLegal('imprint')" style="cursor:pointer;">Impressum</a>
     <a onclick="showConsentModal()" style="cursor:pointer;">Cookie-Einstellungen</a>
   </div>
-  <div class="footer-copy" style="margin-top:12px;">© 2025 BROKEHALLA · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
+  <div class="footer-copy" style="margin-top:12px;">© 2026 PANDEX · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
   <div style="margin-top:14px; font-size:.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(240,244,255,.35); font-weight:600;">
     Created by <span style="background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;">Pandapage</span>
   </div>
@@ -1012,7 +1011,7 @@
   });
 
   // ── COOKIE CONSENT (GDPR / EU) ──
-  const CONSENT_KEY = 'brokehalla_consent';
+  const CONSENT_KEY = 'pandex_consent';
 
   function setCookieConsent(value) {
     var exp = new Date();
@@ -1040,18 +1039,18 @@
 
       + '<h3>1. Verantwortlicher</h3>'
       + '<p>Verantwortlich f&uuml;r die Datenverarbeitung auf dieser Website ist:<br>'
-      + 'Brandon Palermo<br>'
+      + 'Finn Cielma<br>'
       + 'Teimannstra&szlig;e 20<br>'
       + '44894 Bochum<br>'
       + 'Deutschland<br>'
       + 'E-Mail: <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a><br>'
-      + 'Telefon: +49 176 60953390</p>'
+      + 'Telefon: +49 176 63828332</p>'
 
       + '<h3>2. Allgemeine Hinweise</h3>'
       + '<p>Der Schutz Ihrer pers&ouml;nlichen Daten ist uns wichtig. Wir behandeln Ihre Daten vertraulich und entsprechend der DSGVO sowie dieser Datenschutzerkl&auml;rung. Personenbezogene Daten werden nur erhoben, soweit dies technisch notwendig ist oder Sie ausdr&uuml;cklich einwilligen.</p>'
 
-      + '<h3>3. Hosting (Netlify)</h3>'
-      + '<p>Diese Website wird bei Netlify, Inc. (44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA) gehostet. Beim Aufruf werden technisch erforderliche Daten verarbeitet (IP-Adresse, Browser-Typ, Datum/Uhrzeit, aufgerufene Seite). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen Betrieb der Website). Datenverarbeitung in den USA erfolgt auf Basis der EU-Standardvertragsklauseln.</p>'
+      + '<h3>3. Hosting (Cloudflare Pages)</h3>'
+      + '<p>Diese Website (Pandex) wird auf Cloudflare Pages gehostet (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA). Beim Aufruf werden technisch erforderliche Daten verarbeitet (IP-Adresse, Browser-Typ, Datum/Uhrzeit, aufgerufene Seite). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen Betrieb der Website). Datenverarbeitung in den USA erfolgt auf Basis der EU-Standardvertragsklauseln. Datenschutz: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">cloudflare.com/privacypolicy</a>.</p>'
 
       + '<h3>4. Cookies und Einwilligung</h3>'
       + '<p>Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die im Browser gespeichert werden. Wir unterscheiden:</p>'
@@ -1091,8 +1090,9 @@
       + '<h3>6. Kontaktaufnahme</h3>'
       + '<p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage und f&uuml;r Anschlussfragen gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Ma&szlig;nahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Speicherdauer: bis Ihr Anliegen erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>'
 
-      + '<h3>7. Externe Links (TikTok, Discord)</h3>'
-      + '<p>Diese Website enth&auml;lt Links zu TikTok und Discord. Beim Klick werden Sie auf die Plattformen weitergeleitet, die eigene Datenschutzbestimmungen haben. Wir haben keinen Einfluss auf die dortige Datenverarbeitung. Es findet kein Tracking auf unserer Seite statt &mdash; erst nach dem Klick auf den Link.</p>'
+      + '<h3>7. Externe Links (TikTok, Discord) und Creator-Profile</h3>'
+      + '<p>Diese Website enth&auml;lt Links zu TikTok und Discord sowie zu Profilen externer Creator (z.&nbsp;B. <em>Brokehalla</em>). Beim Klick werden Sie auf die jeweiligen Plattformen weitergeleitet, die eigene Datenschutzbestimmungen haben. Wir haben keinen Einfluss auf die dortige Datenverarbeitung.</p>'
+      + '<p>Externe Creator betreiben ihre Social-Media-Kan&auml;le, Discord-Server und sonstigen Angebote eigenverantwortlich. Pandex ist ausschlie&szlig;lich f&uuml;r die auf dieser Website ver&ouml;ffentlichten Inhalte verantwortlich, nicht f&uuml;r externe Angebote, Aufgaben, Zahlungen oder Lieferungen der Creator.</p>'
 
       + '<h3>8. Ihre Rechte (DSGVO)</h3>'
       + '<p>Sie haben jederzeit das Recht auf:</p>'
@@ -1119,17 +1119,17 @@
     imprint: '<h2>Impressum</h2>'
 
       + '<h3>Angaben gem&auml;&szlig; &sect; 5 TMG</h3>'
-      + '<p>Brandon Palermo<br>'
+      + '<p>Finn Cielma<br>'
       + 'Teimannstra&szlig;e 20<br>'
       + '44894 Bochum<br>'
       + 'Deutschland</p>'
 
       + '<h3>Kontakt</h3>'
       + '<p>E-Mail: <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a><br>'
-      + 'Telefon: +49 176 60953390</p>'
+      + 'Telefon: +49 176 63828332</p>'
 
       + '<h3>Verantwortlich f&uuml;r den Inhalt nach &sect; 18 Abs. 2 MStV</h3>'
-      + '<p>Brandon Palermo (Anschrift wie oben)</p>'
+      + '<p>Finn Cielma (Anschrift wie oben)</p>'
 
       + '<h3>Haftungsausschluss</h3>'
       + '<p>Die Inhalte dieser Website wurden mit gr&ouml;&szlig;tm&ouml;glicher Sorgfalt erstellt. F&uuml;r die Richtigkeit, Vollst&auml;ndigkeit und Aktualit&auml;t der Inhalte wird keine Gew&auml;hr &uuml;bernommen. Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs. 1 TMG f&uuml;r eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>'
@@ -1137,8 +1137,12 @@
       + '<h3>Haftung f&uuml;r Links</h3>'
       + '<p>Unser Angebot enth&auml;lt Links zu externen Websites Dritter (z.B. TikTok, Discord), auf deren Inhalte wir keinen Einfluss haben. F&uuml;r die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.</p>'
 
+      + '<h3>&Uuml;ber Pandex</h3>'
+      + '<p>Pandex ist eine unabh&auml;ngige Plattform f&uuml;r originale Mods und Fan-Inhalte. Auf Pandex k&ouml;nnen unabh&auml;ngige Creator ihre selbst erstellten, rechtefreien Inhalte ver&ouml;ffentlichen. Aktuell wird der Creator <em>Brokehalla</em> mit seinen original gestalteten Map-Backgrounds f&uuml;r Brawlhalla vorgestellt.</p>'
+      + '<p>Externe Creator sind unabh&auml;ngig und nicht Mitarbeiter, Vertreter oder Erf&uuml;llungsgehilfen von Pandex. Pandex ist ausschlie&szlig;lich f&uuml;r die auf dieser Website ver&ouml;ffentlichten Inhalte verantwortlich, nicht f&uuml;r externe Angebote, Social-Media-Kan&auml;le, Discord-Server, Zahlungen oder Lieferungen der Creator.</p>'
+
       + '<h3>Urheberrecht / Markenrechte</h3>'
-      + '<p>Brawlhalla&reg; ist ein eingetragenes Markenzeichen von Blue Mammoth Games / Ubisoft Entertainment. Diese Website ist ein <strong>inoffizielles Fan-Projekt</strong> und steht in keiner Verbindung zu Blue Mammoth Games oder Ubisoft. Alle Marken und Warenzeichen geh&ouml;ren ihren jeweiligen Eigent&uuml;mern.</p>'
+      + '<p>Brawlhalla&reg; ist ein eingetragenes Markenzeichen von Blue Mammoth Games / Ubisoft Entertainment. Pandex ist ein <strong>inoffizielles Fan-Projekt</strong> und steht in keiner Verbindung zu Blue Mammoth Games oder Ubisoft. Alle Marken und Warenzeichen geh&ouml;ren ihren jeweiligen Eigent&uuml;mern.</p>'
       + '<p><em>Unofficial fan-made project. All trademarks belong to their respective owners.</em></p>'
 
       + '<h3>EU-Streitschlichtung</h3>'
