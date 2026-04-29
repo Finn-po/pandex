@@ -53,17 +53,17 @@
     display:flex; align-items:center; justify-content:space-between; height:70px;
   }
   .nav-logo-wrap {
-    display:flex; align-items:center; gap:12px;
+    display:flex; align-items:center; gap:10px;
     text-decoration:none;
     cursor:pointer;
+    min-width:0;
   }
-  .nav-logo-wrap img { height:22px; filter: drop-shadow(0 0 8px rgba(0,200,255,0.6)); }
-  .nav-brand {
-    font-family:'Orbitron',sans-serif;
-    font-size:1.25rem; font-weight:900;
-    background: linear-gradient(90deg, var(--blue), var(--violet));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    letter-spacing:2px;
+  .nav-logo-icon { height:20px; width:auto; filter: drop-shadow(0 0 8px rgba(0,200,255,0.55)); }
+  .nav-wordmark { height:20px; width:auto; max-width:150px; object-fit:contain; }
+  .nav-brand { display:none; }
+  @media (max-width:520px) {
+    .nav-wordmark { height:16px; max-width:118px; }
+    .nav-logo-icon { height:18px; }
   }
   .menu-toggle {
     width:46px; height:46px;
@@ -675,7 +675,8 @@
 
 <nav>
   <a class="nav-logo-wrap" href="index.html" aria-label="PANDEX home">
-    <img src="images/logo.png" alt="PANDEX">
+    <img class="nav-logo-icon" src="images/logo.png" alt="Pandex panda icon">
+    <img class="nav-wordmark" src="images/pandex-wordmark.png" alt="PANDEX">
   </a>
   <button class="menu-toggle" onclick="openMenu()" aria-label="Open navigation menu">
     <span></span><span></span><span></span>
@@ -685,8 +686,11 @@
 <div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
 <aside id="menuPanel" class="menu-panel" aria-label="PANDEX navigation">
   <div class="menu-head">
-    <img src="images/logo.png" alt="PANDEX">
-    <button class="menu-close" onclick="closeMenu()" aria-label="Close navigation menu">â</button>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="images/logo.png" alt="Pandex panda icon">
+      <img src="images/pandex-wordmark.png" alt="PANDEX" style="height:22px;width:auto;max-width:150px;object-fit:contain;">
+    </div>
+    <button class="menu-close" onclick="closeMenu()" aria-label="Close navigation menu">×</button>
   </div>
   <div class="menu-links">
     <a href="index.html#maps" onclick="closeMenu()">Maps</a>
@@ -741,66 +745,69 @@
 <section id="maps">
   <h2 class="section-title">Brawlhalla Maps by Brokehalla</h2>
   <div class="section-divider"></div>
-  <p class="section-sub">Original custom Brawlhalla map concepts by independent creator <strong style="color:var(--blue);">Brokehalla</strong>. Current version shows image previews only.</p>
+  <p class="section-sub">Original Brawlhalla-inspired map background previews by <strong style="color:var(--blue);">Brokehalla</strong>. No downloads yet — this launch version shows preview images only.</p>
 
   <div class="maps-grid">
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"><div class="map-zoom-hint">🔍 Click to enlarge</div></div>
+      <div class="map-preview-wrap" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
         <div class="map-name">Celestial Storm Arena</div>
-        <div class="map-desc">A floating battle platform between storm clouds, airships and a golden celestial sky.</div>
+        <div class="map-desc">Storm arena above the clouds with airships, runes and a golden sky.</div>
         <div class="map-meta">
-          <span class="map-tag">Background</span>
-          <span class="map-tag">Concept</span>
+          <span class="map-tag">Preview only</span>
+          <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')">🔍 View Image</button>
+        <button class="btn-download" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Astral Observatory','images/astral-observatory.png')"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"><div class="map-zoom-hint">🔍 Click to enlarge</div></div>
+      <div class="map-preview-wrap" onclick="openPreview('Astral Observatory','images/astral-observatory.png')"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
         <div class="map-name">Astral Observatory</div>
-        <div class="map-desc">A blue-gold observatory above the clouds with floating platforms, gears and a glowing portal.</div>
+        <div class="map-desc">Floating blue-gold observatory with portal energy and side platforms.</div>
         <div class="map-meta">
-          <span class="map-tag">Background</span>
-          <span class="map-tag">Concept</span>
+          <span class="map-tag">Preview only</span>
+          <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Astral Observatory','images/astral-observatory.png')">🔍 View Image</button>
+        <button class="btn-download" onclick="openPreview('Astral Observatory','images/astral-observatory.png')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Crystal Rift','images/crystal-rift.png')"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"><div class="map-zoom-hint">🔍 Click to enlarge</div></div>
+      <div class="map-preview-wrap" onclick="openPreview('Crystal Rift','images/crystal-rift.png')"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
         <div class="map-name">Crystal Rift</div>
-        <div class="map-desc">A vertical crystal world with glowing ruins, floating platforms and a deep cosmic vortex overhead.</div>
+        <div class="map-desc">Vertical crystal rift with glowing ruins, floating stones and cosmic light.</div>
         <div class="map-meta">
-          <span class="map-tag">Background</span>
-          <span class="map-tag">Concept</span>
+          <span class="map-tag">Preview only</span>
+          <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Crystal Rift','images/crystal-rift.png')">🔍 View Image</button>
+        <button class="btn-download" onclick="openPreview('Crystal Rift','images/crystal-rift.png')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Golden Citadel','images/golden-citadel.png')"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"><div class="map-zoom-hint">🔍 Click to enlarge</div></div>
+      <div class="map-preview-wrap" onclick="openPreview('Golden Citadel','images/golden-citadel.png')"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
         <div class="map-name">Golden Citadel</div>
-        <div class="map-desc">A bright royal arena with marble platforms, golden towers, pine trees and a castle above the clouds.</div>
+        <div class="map-desc">Bright royal sky arena with marble, gold details and castle scenery.</div>
         <div class="map-meta">
-          <span class="map-tag">Background</span>
-          <span class="map-tag">Concept</span>
+          <span class="map-tag">Preview only</span>
+          <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Golden Citadel','images/golden-citadel.png')">🔍 View Image</button>
+        <button class="btn-download" onclick="openPreview('Golden Citadel','images/golden-citadel.png')">View Preview</button>
       </div>
     </div>
 
+  </div>
+  <div class="install-note" style="margin-top:22px;">
+    Downloads are not public yet. Pandex is currently validating preview quality, creator workflow and legal structure before enabling downloadable files.
   </div>
 </section>
 
@@ -906,8 +913,10 @@
 </section>
 
 <footer>
-  <img class="footer-logo" src="images/logo.png" alt="PANDEX"
-       onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <div class="footer-logo-row" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <img class="footer-logo" src="images/logo.png" alt="Pandex panda icon">
+    <img class="footer-wordmark" src="images/pandex-wordmark.png" alt="PANDEX">
+  </div>
   <div class="footer-brand">PANDEX</div>
   <div style="font-size:.85rem; color:rgba(240,244,255,.55); margin-bottom:18px; max-width:520px; margin-left:auto; margin-right:auto;">
     Independent platform for original game mods.<br>
