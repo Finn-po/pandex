@@ -638,7 +638,7 @@
 </style>
 
 </head>
-<body class="cookie-locked">
+<body>
 
 <nav>
   <a class="nav-logo-wrap" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
@@ -648,6 +648,7 @@
     <a href="#maps">Maps</a>
     <a href="about.html">About</a>
     <a href="faq.html">FAQ</a>
+    <a href="roadmap.html">Roadmap</a>
     <a href="submit.html">Submit</a>
     <a onclick="window.open('https://discord.gg/SyTpDNjmaG','_blank')" href="#">Discord</a>
     <a onclick="window.open('https://www.tiktok.com/@brokehalla','_blank')" href="#">TikTok</a>
@@ -797,6 +798,17 @@
   </div>
 </section>
 
+<section id="roadmap-teaser">
+  <h2 class="section-title">Roadmap</h2>
+  <div class="section-divider"></div>
+  <p class="section-sub">Pandex is launching in clear phases: previews first, then rights-cleared downloads and more creator workflows.</p>
+  <div class="install-wrap">
+    <div class="install-step"><div class="step-num">1</div><div class="step-content"><div class="step-title">Phase 1: Preview Launch</div><div class="step-desc">Original map background previews, legal pages, creator submission guidance and community links.</div></div></div>
+    <div class="install-step"><div class="step-num">2</div><div class="step-content"><div class="step-title">Phase 2: Downloads</div><div class="step-desc">Download access after the content workflow, rights checks and takedown process are ready.</div></div></div>
+    <div class="install-note">See the full plan here: <a href="roadmap.html" style="color:var(--blue);">Open Pandex Roadmap</a>.</div>
+  </div>
+</section>
+
 <section id="legal-info">
   <h2 class="section-title">Platform Rules</h2>
   <div class="section-divider"></div>
@@ -830,6 +842,7 @@
     <a href="#maps">Maps</a>
     <a href="about.html">About</a>
     <a href="faq.html">FAQ</a>
+    <a href="roadmap.html">Roadmap</a>
     <a href="submit.html">Submit</a>
     <a href="https://www.tiktok.com/@brokehalla" target="_blank">TikTok</a>
     <a href="https://discord.gg/SyTpDNjmaG" target="_blank">Discord</a>
@@ -1047,12 +1060,11 @@
     if (e.target === this) closeLegal();
   });
 
-  // The cookie modal is rendered visible by default and the body is locked.
-  // We only HIDE it if the user has already consented in a previous visit.
+  // Cookie banner is non-blocking: visitors can use the website even before choosing.
   function showConsentModal() {
     var b = document.getElementById('cookieBanner');
     if (b) b.classList.remove('hidden');
-    document.body.classList.add('cookie-locked');
+    document.body.classList.remove('cookie-locked');
   }
   function hideConsentModal() {
     var b = document.getElementById('cookieBanner');
@@ -1060,22 +1072,14 @@
     document.body.classList.remove('cookie-locked');
   }
 
-  // Runs immediately — if consent was already given, hide the (currently visible) modal.
   (function initConsent() {
-    var consent = getCookieConsent();
-    if (consent) {
-      // User has chosen before → hide modal and unlock body right away
-      // Wait until the cookieBanner element exists in the DOM
-      if (document.getElementById('cookieBanner')) {
-        hideConsentModal();
-      } else {
-        document.addEventListener('DOMContentLoaded', hideConsentModal);
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+      var consent = getCookieConsent();
+      if (!consent) showConsentModal();
       if (consent === 'all') {
         // AD NETWORK ACTIVATION ON RETURN VISITS
       }
-    }
-    // If no consent yet → modal stays visible (it's the default), body stays locked
+    });
   })();
 
 </script>
@@ -1088,7 +1092,7 @@
   </div>
 </div>
 
-<div id="cookieBanner">
+<div id="cookieBanner" class="hidden">
   <div class="cookie-box">
     <div class="cookie-icon">🍪</div>
     <div class="cookie-title">We Use Cookies / Wir nutzen Cookies</div>
