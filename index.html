@@ -544,54 +544,73 @@
   #imgPreviewOverlay {
     display: none;
     position: fixed; inset: 0; z-index: 2000;
-    background: rgba(0,0,0,0.92);
-    backdrop-filter: blur(12px);
+    background: radial-gradient(circle at 50% 15%, rgba(0,200,255,0.16), transparent 34%), rgba(0,0,0,0.94);
+    backdrop-filter: blur(14px);
     align-items: center; justify-content: center;
     cursor: zoom-out;
+    padding: 72px 18px 34px;
   }
   #imgPreviewOverlay.active { display: flex; }
   #imgPreviewBox {
     position: relative;
-    max-width: 90vw;
-    max-height: 88vh;
-    border-radius: 16px;
+    width: min(96vw, 1400px);
+    max-height: 86vh;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 0 80px rgba(0,200,255,0.3), 0 0 160px rgba(139,47,201,0.2);
-    border: 1px solid rgba(0,200,255,0.25);
+    box-shadow: 0 0 90px rgba(0,200,255,0.32), 0 0 160px rgba(139,47,201,0.24), 0 30px 80px rgba(0,0,0,0.65);
+    border: 1px solid rgba(0,200,255,0.32);
     animation: previewIn 0.25s ease;
+    background: #02050a;
   }
   @keyframes previewIn {
-    from { opacity:0; transform: scale(0.88); }
+    from { opacity:0; transform: scale(0.92); }
     to   { opacity:1; transform: scale(1); }
   }
   #imgPreviewBox img {
     display: block;
-    max-width: 90vw;
-    max-height: 88vh;
+    width: 100%;
+    max-height: 82vh;
     object-fit: contain;
+    background: #02050a;
   }
   #imgPreviewLabel {
     position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
-    padding: 24px 20px 16px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+    padding: 34px 20px 16px;
     font-family: 'Orbitron', sans-serif;
-    font-size: 1rem; font-weight: 700;
+    font-size: clamp(.82rem, 2vw, 1rem); font-weight: 800;
+    letter-spacing: 1.4px;
     color: #fff;
     text-align: center;
+    text-transform: uppercase;
   }
   #imgPreviewClose {
-    position: fixed; top: 20px; right: 24px;
+    position: fixed; top: 18px; right: 22px;
     background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #fff; font-size: 1.5rem;
-    width: 44px; height: 44px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff; font-size: 1.4rem;
+    width: 46px; height: 46px;
     border-radius: 50%;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
     z-index: 2001;
   }
-  #imgPreviewClose:hover { background: rgba(0,200,255,0.2); }
+  #imgPreviewClose:hover { background: rgba(0,200,255,0.2); border-color: rgba(0,200,255,0.45); transform: scale(1.04); }
+  #imgPreviewHint {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+    color: rgba(240,244,255,0.55);
+    font-size: .74rem; letter-spacing: 1.2px; text-transform: uppercase;
+    pointer-events: none;
+    z-index: 2001;
+  }
+  @media (max-width: 640px) {
+    #imgPreviewOverlay { padding: 64px 10px 28px; }
+    #imgPreviewBox { width: 98vw; border-radius: 12px; }
+    #imgPreviewBox img { max-height: 78vh; }
+    #imgPreviewClose { top: 12px; right: 12px; width: 42px; height: 42px; }
+    #imgPreviewHint { display: none; }
+  }
 
   /* ── COOKIE CONSENT (centered blocking modal) ── */
   #cookieBanner {
@@ -902,12 +921,7 @@
 
       + '<h3>1. Verantwortlicher</h3>'
       + '<p>Verantwortlich f&uuml;r die Datenverarbeitung auf dieser Website ist:<br>'
-      + 'Finn Cielma<br>'
-      + 'Teimannstra&szlig;e 20<br>'
-      + '44894 Bochum<br>'
-      + 'Deutschland<br>'
-      + 'E-Mail: <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a><br>'
-      + 'Telefon: +49 176 63828332</p>'
+      + 'Verantwortlich f&uuml;r die Datenverarbeitung auf dieser Website ist Finn Cielma, ans&auml;ssig in der Teimannstra&szlig;e 20 in 44894 Bochum, Deutschland. Kontakt ist per E-Mail unter <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a> m&ouml;glich.</p>'
 
       + '<h3>2. Allgemeine Hinweise</h3>'
       + '<p>Der Schutz Ihrer pers&ouml;nlichen Daten ist uns wichtig. Wir behandeln Ihre Daten vertraulich und entsprechend der DSGVO sowie dieser Datenschutzerkl&auml;rung. Personenbezogene Daten werden nur erhoben, soweit dies technisch notwendig ist oder Sie ausdr&uuml;cklich einwilligen.</p>'
@@ -1014,18 +1028,11 @@
 
     imprint: '<h2>Impressum</h2>'
 
-      + '<h3>Angaben gem&auml;&szlig; &sect; 5 TMG</h3>'
-      + '<p>Finn Cielma<br>'
-      + 'Teimannstra&szlig;e 20<br>'
-      + '44894 Bochum<br>'
-      + 'Deutschland</p>'
-
-      + '<h3>Kontakt</h3>'
-      + '<p>E-Mail: <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a><br>'
-      + 'Telefon: +49 176 63828332</p>'
+      + '<h3>Angaben gem&auml;&szlig; &sect; 5 TMG / DDG</h3>'
+      + '<p>Verantwortlich f&uuml;r Pandex ist Finn Cielma, ans&auml;ssig in der Teimannstra&szlig;e 20 in 44894 Bochum, Deutschland. Kontaktaufnahme ist per E-Mail unter <a href="mailto:kontakt.pandapages@gmail.com">kontakt.pandapages@gmail.com</a> m&ouml;glich.</p>'
 
       + '<h3>Verantwortlich f&uuml;r den Inhalt nach &sect; 18 Abs. 2 MStV</h3>'
-      + '<p>Finn Cielma (Anschrift wie oben)</p>'
+      + '<p>F&uuml;r die redaktionellen Inhalte dieser Website ist Finn Cielma unter der oben genannten Anschrift verantwortlich.</p>'
 
       + '<h3>Haftungsausschluss</h3>'
       + '<p>Die Inhalte dieser Website wurden mit gr&ouml;&szlig;tm&ouml;glicher Sorgfalt erstellt. F&uuml;r die Richtigkeit, Vollst&auml;ndigkeit und Aktualit&auml;t der Inhalte wird keine Gew&auml;hr &uuml;bernommen. Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs. 1 TMG f&uuml;r eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>'
@@ -1083,11 +1090,12 @@
 </script>
 
 <div id="imgPreviewOverlay" onclick="closePreview()">
-  <button id="imgPreviewClose" onclick="closePreview()">✕</button>
+  <button id="imgPreviewClose" onclick="event.stopPropagation(); closePreview();" aria-label="Close preview">✕</button>
   <div id="imgPreviewBox" onclick="event.stopPropagation()">
     <img id="imgPreviewImg" src="" alt="">
     <div id="imgPreviewLabel"></div>
   </div>
+  <div id="imgPreviewHint">Click outside or press Esc to close</div>
 </div>
 
 <div id="cookieBanner" class="hidden">
