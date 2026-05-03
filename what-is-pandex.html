@@ -3,14 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PANDEX – independent modding platform for original game-content previews.">
-<meta property="og:title" content="g20 Faze">
-<meta property="og:description" content="g20 Faze creates original arena previews with crystal scenery, royal structures and readable platform-fighter-inspired map backgrounds.">
+<meta name="description" content="Original arena concepts, creator previews and future downloads for platform-fighter communities.">
+<meta property="og:title" content="What is Pandex?">
+<meta property="og:description" content="Original arena concepts, creator previews and future downloads for platform-fighter communities.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/logo.png">
+<meta property="og:image" content="https://pandex-2lc.pages.dev/images/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>g20 Faze</title>
-<link rel="icon" type="image/png" href="images/pandex-icon.png">
+<title>What is Pandex?</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon/android-chrome-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#000000">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -676,7 +685,38 @@
 
 
 .page-hero{position:relative;z-index:1;min-height:52vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 50px}.page-kicker{font-family:'Orbitron',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-size:.75rem;font-weight:900;margin-bottom:14px}.page-title{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1.08;background:linear-gradient(135deg,#fff,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.page-sub{max-width:720px;color:rgba(240,244,255,.68);line-height:1.75;margin:20px auto 0}.page-content{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:30px 5% 90px}.content-card{background:linear-gradient(180deg,rgba(15,26,42,.9),rgba(13,20,32,.82));border:1px solid rgba(0,200,255,.14);border-radius:24px;padding:28px;margin:18px 0;box-shadow:0 14px 45px rgba(0,0,0,.28)}.content-card h2{font-family:'Orbitron',sans-serif;font-size:1.05rem;letter-spacing:1px;color:#fff;margin-bottom:12px}.content-card h3{color:var(--blue);font-size:.95rem;margin:18px 0 8px}.content-card p,.content-card li{color:rgba(240,244,255,.68);line-height:1.75;font-size:.95rem}.content-card ul{padding-left:22px}.content-card a{color:var(--blue)}
+
+  .creator-line { display:inline-flex; align-items:center; gap:8px; margin:0 0 14px; padding:6px 10px; border:1px solid rgba(0,200,255,.22); border-radius:8px; background:rgba(0,200,255,.08); color:rgba(240,244,255,.82); font-size:.74rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; text-decoration:none; }
+  .creator-line:hover { color:#fff; border-color:rgba(0,200,255,.5); }
+  .signup-section { position:relative; z-index:1; max-width:980px; margin:24px auto 0; padding:0 5%; }
+  .signup-card { background:linear-gradient(180deg,rgba(15,26,42,.92),rgba(13,20,32,.84)); border:1px solid rgba(0,200,255,.18); border-radius:18px; padding:24px; box-shadow:0 14px 45px rgba(0,0,0,.26); }
+  .signup-card h2 { font-family:'Orbitron',sans-serif; font-size:1.05rem; color:#fff; margin-bottom:8px; letter-spacing:1px; }
+  .signup-card p { color:rgba(240,244,255,.68); line-height:1.6; margin-bottom:14px; }
+  .signup-form { display:flex; gap:10px; flex-wrap:wrap; }
+  .signup-form input { flex:1 1 260px; min-width:0; border:1px solid rgba(0,200,255,.22); border-radius:10px; background:rgba(255,255,255,.05); color:#fff; padding:13px 14px; font:inherit; }
+  .signup-form button { border:none; border-radius:10px; padding:13px 18px; background:linear-gradient(135deg,var(--blue-dark),var(--purple)); color:#fff; font-family:'Orbitron',sans-serif; font-weight:800; letter-spacing:1px; text-transform:uppercase; cursor:pointer; }
+  .signup-status { min-height:22px; margin-top:10px; color:rgba(240,244,255,.64); font-size:.88rem; }
+  .signup-status.success { color:#60f0b0; }
+  .signup-status.error { color:#ff8a8a; }
+  .teaser-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .teaser-card { background:linear-gradient(180deg,rgba(15,26,42,.9),rgba(13,20,32,.86)); border:1px solid rgba(0,200,255,.14); border-radius:18px; overflow:hidden; }
+  .teaser-visual { height:150px; background:radial-gradient(circle at 35% 25%,rgba(0,200,255,.72),transparent 28%),radial-gradient(circle at 72% 55%,rgba(187,68,255,.7),transparent 30%),linear-gradient(135deg,#101827,#05070d); filter:blur(20px) brightness(.4); transform:scale(1.08); }
+  .teaser-body { padding:18px; }
+  .teaser-body h3 { font-family:'Orbitron',sans-serif; font-size:.95rem; margin-bottom:8px; color:#fff; }
+  .teaser-body p { color:rgba(240,244,255,.65); line-height:1.55; font-size:.9rem; margin-bottom:12px; }
+  .teaser-badge { display:inline-block; color:var(--blue); border:1px solid rgba(0,200,255,.22); background:rgba(0,200,255,.08); border-radius:8px; padding:5px 8px; font-size:.68rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+  .detail-hero-img { width:100%; border-radius:18px; border:1px solid rgba(0,200,255,.16); box-shadow:0 18px 55px rgba(0,0,0,.38); }
+  .breadcrumb { color:rgba(240,244,255,.55); font-size:.85rem; margin-bottom:18px; }
+  .breadcrumb a,.back-link { color:var(--blue); text-decoration:none; }
+  .placeholder-panel { border:1px dashed rgba(0,200,255,.25); border-radius:14px; padding:24px; color:rgba(240,244,255,.48); background:rgba(0,200,255,.04); }
+  @media (max-width:900px){ .teaser-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:560px){ .teaser-grid { grid-template-columns:1fr; } .signup-form button { width:100%; } }
+
 </style>
+<meta property="og:url" content="https://pandex-2lc.pages.dev/what-is-pandex.html">
+<meta name="twitter:title" content="What is Pandex?">
+<meta name="twitter:description" content="Original arena concepts, creator previews and future downloads for platform-fighter communities.">
+<meta name="twitter:image" content="https://pandex-2lc.pages.dev/images/logo.png">
 </head>
 <body>
 <nav>
@@ -703,6 +743,7 @@
     <a href="index.html#maps" onclick="closeMenu()">Maps</a>
     <a href="creators.html" onclick="closeMenu()">Creators</a>
     <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="what-is-pandex.html" onclick="closeMenu()">What is Pandex?</a>
     <a href="faq.html" onclick="closeMenu()">FAQ</a>
     <a href="roadmap.html" onclick="closeMenu()">Roadmap</a>
     <a href="submit.html" onclick="closeMenu()">Submit</a>
@@ -718,10 +759,14 @@
   <div class="menu-note">PANDEX is an independent fan-content platform. Current public version shows original map previews.</div>
 </aside>
 
-<section class="page-hero"><div class="hero-bg-orb orb1"></div><div class="hero-bg-orb orb2"></div><div class="page-kicker">Creator profile</div><h1 class="page-title">g20 Faze</h1><p class="page-sub">g20 Faze creates original arena previews with crystal scenery, royal structures and readable platform-fighter-inspired map backgrounds.</p></section>
-<main class="page-content"><div class="content-card"><h2>Creator style</h2><p>Bold battleground silhouettes, glowing crystal worlds, royal sky arenas and clean scenery built to read quickly in motion.</p></div>
-<div class="content-card"><h2>Map assignments</h2><p>Map assignments are not public yet.</p></div>
-<div class="content-card"><h2>Creator links</h2><p>Creator links are not public yet.</p></div></main>
+<section class="page-hero"><div class="hero-bg-orb orb1"></div><div class="hero-bg-orb orb2"></div><div class="page-kicker">Platform</div><h1 class="page-title">What is Pandex?</h1><p class="page-sub">Pandex is a pre-launch hub for original arena concepts, creator previews and future downloads for platform-fighter communities.</p></section>
+<main class="page-content"><div class="content-card"><p>Pandex helps fan-made arena concepts become easier to discover, understand and follow. The site currently shows original preview artwork while the download and creator workflows are still being prepared.</p></div>
+<div class="content-card"><h2>A platform for original arena concepts</h2><p>Pandex starts with previews: clear presentation, creator context and deeper pages for original arena concepts. Downloads are planned for a later phase after review rules, takedown handling and creator approval workflows are stable.</p></div>
+<div class="content-card"><h2>Built for the platform-fighter modding community</h2><p>Pandex serves players and creators who care about custom arena art, readable stage silhouettes and fan-made ideas around platform fighters such as Brawlhalla. Pandex is not affiliated with Ubisoft, Blue Mammoth Games or Brawlhalla.</p></div>
+<div class="content-card"><h2>How creators publish on Pandex</h2><p>Creators can prepare original, rights-cleared artwork and send it for review through the <a href="submit.html">Submit</a> page. Pandex reviews submissions for originality, quality and fit before anything is published.</p></div>
+<div class="content-card"><h2>What's coming next</h2><p>The next public milestone is Phase 2: downloads for approved original creator-made arena concepts. See the <a href="roadmap.html">Roadmap</a> for current target windows.</p></div>
+<div class="content-card"><h2>FAQ highlights</h2><p><strong>Are downloads available?</strong> Not yet; current public pages show previews only.</p><p><strong>Can creators submit maps?</strong> Yes, original rights-cleared arena concepts can be submitted for review.</p><p><strong>Is Pandex official?</strong> No. Pandex is an independent fan-content platform. Read the full <a href="faq.html">FAQ</a>.</p></div>
+<section class="signup-section" aria-labelledby="what-signup-title" style="padding:0;margin:18px 0;"><div class="signup-card"><h2 id="what-signup-title">Get notified when downloads go live</h2><p>No spam. One email when Phase 2 ships.</p><form class="signup-form" data-subscribe-form novalidate><input type="email" name="email" placeholder="you@example.com" autocomplete="email" required><button type="submit">Notify me</button></form><div class="signup-status" data-subscribe-status aria-live="polite"></div></div></section></main>
 <footer>
   <div class="footer-logo-row" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <img class="footer-logo" src="images/logo.png" alt="Pandex panda icon">
@@ -737,6 +782,7 @@
     <a href="content-policy.html">Content Policy</a>
     <a href="takedown.html">Takedown</a>
     <a href="cookies.html">Cookies</a>
+    <a href="what-is-pandex.html">What is Pandex?</a>
   </div>
   <div class="footer-copy" style="margin-top:16px;">© 2026 PANDEX · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
   <div style="margin-top:10px; font-size:.68rem; letter-spacing:1.6px; text-transform:uppercase; color:rgba(240,244,255,.32); font-weight:600;">
@@ -747,5 +793,7 @@
 function openMenu(){document.getElementById('menuPanel').classList.add('active');document.getElementById('menuBackdrop').classList.add('active');document.body.style.overflow='hidden';}
 function closeMenu(){document.getElementById('menuPanel').classList.remove('active');document.getElementById('menuBackdrop').classList.remove('active');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+function initSignupForms(){document.querySelectorAll('[data-subscribe-form]').forEach(function(form){var input=form.querySelector('input[type="email"]');var status=form.parentElement.querySelector('[data-subscribe-status]');form.addEventListener('submit',async function(event){event.preventDefault();var email=input.value.trim();status.className='signup-status';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status.textContent='Please enter a valid email address.';status.classList.add('error');return;}status.textContent='Saving...';try{var response=await fetch('/api/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email})});var data=await response.json().catch(function(){return {};});if(!response.ok)throw new Error(data.error||'Signup failed.');form.reset();status.textContent='Thanks. We will email you when Phase 2 ships.';status.classList.add('success');}catch(error){status.textContent=error.message||'Something went wrong. Please try again.';status.classList.add('error');}});});}
+document.addEventListener('DOMContentLoaded',initSignupForms);
 </script>
 </body></html>

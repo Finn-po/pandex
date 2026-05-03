@@ -3,19 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PANDEX is a pre-launch hub for original arena concepts and future downloads. Preview early platform-fighter-inspired arena concepts.">
+<meta name="description" content="Pre-launch hub for original arena previews, creator updates and future downloads.">
 <meta property="og:title" content="PANDEX – Original Arena Concepts">
-<meta property="og:description" content="A pre-launch hub for original arena previews, creator workflow updates and future downloads.">
+<meta property="og:description" content="Pre-launch hub for original arena previews, creator updates and future downloads.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://pandex.pages.dev/">
-<meta property="og:image" content="https://pandex.pages.dev/images/logo.png">
+<meta property="og:url" content="https://pandex-2lc.pages.dev/">
+<meta property="og:image" content="https://pandex-2lc.pages.dev/images/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PANDEX – Original Arena Concepts">
-<meta name="twitter:description" content="Pre-launch arena previews and future downloads.">
-<meta name="twitter:image" content="https://pandex.pages.dev/images/logo.png">
+<meta name="twitter:description" content="Pre-launch hub for original arena previews, creator updates and future downloads.">
+<meta name="twitter:image" content="https://pandex-2lc.pages.dev/images/logo.png">
 <meta name="keywords" content="Pandex, modding, custom maps, platform fighter mods, game mods, community creators">
-<title>PANDEX – Pre-Launch Arena Concepts</title>
-<link rel="icon" type="image/png" href="images/pandex-icon.png">
+<title>PANDEX – Original Arena Concepts</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon/android-chrome-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#000000">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -701,6 +710,33 @@
   .legal-close { position:absolute; top:14px; right:18px; background:none; border:none; color:rgba(240,244,255,.4); font-size:1.4rem; cursor:pointer; transition:color .2s; }
   .legal-close:hover { color:var(--white); }
 
+
+  .creator-line { display:inline-flex; align-items:center; gap:8px; margin:0 0 14px; padding:6px 10px; border:1px solid rgba(0,200,255,.22); border-radius:8px; background:rgba(0,200,255,.08); color:rgba(240,244,255,.82); font-size:.74rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; text-decoration:none; }
+  .creator-line:hover { color:#fff; border-color:rgba(0,200,255,.5); }
+  .signup-section { position:relative; z-index:1; max-width:980px; margin:24px auto 0; padding:0 5%; }
+  .signup-card { background:linear-gradient(180deg,rgba(15,26,42,.92),rgba(13,20,32,.84)); border:1px solid rgba(0,200,255,.18); border-radius:18px; padding:24px; box-shadow:0 14px 45px rgba(0,0,0,.26); }
+  .signup-card h2 { font-family:'Orbitron',sans-serif; font-size:1.05rem; color:#fff; margin-bottom:8px; letter-spacing:1px; }
+  .signup-card p { color:rgba(240,244,255,.68); line-height:1.6; margin-bottom:14px; }
+  .signup-form { display:flex; gap:10px; flex-wrap:wrap; }
+  .signup-form input { flex:1 1 260px; min-width:0; border:1px solid rgba(0,200,255,.22); border-radius:10px; background:rgba(255,255,255,.05); color:#fff; padding:13px 14px; font:inherit; }
+  .signup-form button { border:none; border-radius:10px; padding:13px 18px; background:linear-gradient(135deg,var(--blue-dark),var(--purple)); color:#fff; font-family:'Orbitron',sans-serif; font-weight:800; letter-spacing:1px; text-transform:uppercase; cursor:pointer; }
+  .signup-status { min-height:22px; margin-top:10px; color:rgba(240,244,255,.64); font-size:.88rem; }
+  .signup-status.success { color:#60f0b0; }
+  .signup-status.error { color:#ff8a8a; }
+  .teaser-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .teaser-card { background:linear-gradient(180deg,rgba(15,26,42,.9),rgba(13,20,32,.86)); border:1px solid rgba(0,200,255,.14); border-radius:18px; overflow:hidden; }
+  .teaser-visual { height:150px; background:radial-gradient(circle at 35% 25%,rgba(0,200,255,.72),transparent 28%),radial-gradient(circle at 72% 55%,rgba(187,68,255,.7),transparent 30%),linear-gradient(135deg,#101827,#05070d); filter:blur(20px) brightness(.4); transform:scale(1.08); }
+  .teaser-body { padding:18px; }
+  .teaser-body h3 { font-family:'Orbitron',sans-serif; font-size:.95rem; margin-bottom:8px; color:#fff; }
+  .teaser-body p { color:rgba(240,244,255,.65); line-height:1.55; font-size:.9rem; margin-bottom:12px; }
+  .teaser-badge { display:inline-block; color:var(--blue); border:1px solid rgba(0,200,255,.22); background:rgba(0,200,255,.08); border-radius:8px; padding:5px 8px; font-size:.68rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+  .detail-hero-img { width:100%; border-radius:18px; border:1px solid rgba(0,200,255,.16); box-shadow:0 18px 55px rgba(0,0,0,.38); }
+  .breadcrumb { color:rgba(240,244,255,.55); font-size:.85rem; margin-bottom:18px; }
+  .breadcrumb a,.back-link { color:var(--blue); text-decoration:none; }
+  .placeholder-panel { border:1px dashed rgba(0,200,255,.25); border-radius:14px; padding:24px; color:rgba(240,244,255,.48); background:rgba(0,200,255,.04); }
+  @media (max-width:900px){ .teaser-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:560px){ .teaser-grid { grid-template-columns:1fr; } .signup-form button { width:100%; } }
+
 </style>
 
 </head>
@@ -730,6 +766,7 @@
     <a href="index.html#maps" onclick="closeMenu()">Maps</a>
     <a href="creators.html" onclick="closeMenu()">Creators</a>
     <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="what-is-pandex.html" onclick="closeMenu()">What is Pandex?</a>
     <a href="faq.html" onclick="closeMenu()">FAQ</a>
     <a href="roadmap.html" onclick="closeMenu()">Roadmap</a>
     <a href="submit.html" onclick="closeMenu()">Submit</a>
@@ -769,10 +806,11 @@
   <div class="maps-grid">
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
+      <a class="map-preview-wrap" href="/maps/celestial-storm/"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
-        <div class="map-name">Celestial Storm Arena</div>
+        <a class="map-name" href="/maps/celestial-storm/" style="display:block;text-decoration:none;">Celestial Storm Arena</a>
+        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
         <div class="map-desc">
           <strong>Hook:</strong> Fight where thunder, skyships and ancient runes meet above the clouds.<br><br>
           <strong>Lore:</strong> Celestial Storm Arena hangs in a golden sky, surrounded by drifting airships and storm-lit ruins. The arena feels like a ritual platform built for champions who dare to cross the weather line.<br><br>
@@ -782,15 +820,16 @@
           <span class="map-tag">Preview only — playable version planned</span>
           <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png')">View Preview</button>
+        <button class="btn-download" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png','/maps/celestial-storm/')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Astral Observatory','images/astral-observatory.png')"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
+      <a class="map-preview-wrap" href="/maps/astral-observatory/"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
-        <div class="map-name">Astral Observatory</div>
+        <a class="map-name" href="/maps/astral-observatory/" style="display:block;text-decoration:none;">Astral Observatory</a>
+        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
         <div class="map-desc">
           <strong>Hook:</strong> Step into a star-forged observatory where every platform feels pulled by cosmic gravity.<br><br>
           <strong>Lore:</strong> Astral Observatory floats between deep space and a blue-gold portal core. Its side platforms and glowing machinery suggest an old research station still tracking movements beyond the visible sky.<br><br>
@@ -800,15 +839,16 @@
           <span class="map-tag">Preview only — playable version planned</span>
           <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Astral Observatory','images/astral-observatory.png')">View Preview</button>
+        <button class="btn-download" onclick="openPreview('Astral Observatory','images/astral-observatory.png','/maps/astral-observatory/')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Crystal Rift','images/crystal-rift.png')"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
+      <a class="map-preview-wrap" href="/maps/crystal-rift/"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
-        <div class="map-name">Crystal Rift</div>
+        <a class="map-name" href="/maps/crystal-rift/" style="display:block;text-decoration:none;">Crystal Rift</a>
+        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
         <div class="map-desc">
           <strong>Hook:</strong> A broken crystal gateway turns the battlefield into a climb through unstable light.<br><br>
           <strong>Lore:</strong> Crystal Rift opens inside a shattered ruin where floating stones orbit a glowing vertical tear. The scene suggests a place where old magic cracked the ground and left the sky shining through the wound.<br><br>
@@ -818,15 +858,16 @@
           <span class="map-tag">Preview only — playable version planned</span>
           <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Crystal Rift','images/crystal-rift.png')">View Preview</button>
+        <button class="btn-download" onclick="openPreview('Crystal Rift','images/crystal-rift.png','/maps/crystal-rift/')">View Preview</button>
       </div>
     </div>
 
     <div class="map-card">
-      <div class="map-preview-wrap" onclick="openPreview('Golden Citadel','images/golden-citadel.png')"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"><div class="map-zoom-hint">Click to enlarge</div></div>
+      <a class="map-preview-wrap" href="/maps/golden-citadel/"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
       <span class="map-badge">PREVIEW</span>
       <div class="map-body">
-        <div class="map-name">Golden Citadel</div>
+        <a class="map-name" href="/maps/golden-citadel/" style="display:block;text-decoration:none;">Golden Citadel</a>
+        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
         <div class="map-desc">
           <strong>Hook:</strong> Duel in a sunlit royal arena built from marble, gold and impossible altitude.<br><br>
           <strong>Lore:</strong> Golden Citadel rises above the clouds like a ceremonial fortress for legendary matches. Its bright stonework, warm gold details and distant castle scenery give the map a regal, high-stakes atmosphere.<br><br>
@@ -836,7 +877,7 @@
           <span class="map-tag">Preview only — playable version planned</span>
           <span class="map-tag">Original artwork</span>
         </div>
-        <button class="btn-download" onclick="openPreview('Golden Citadel','images/golden-citadel.png')">View Preview</button>
+        <button class="btn-download" onclick="openPreview('Golden Citadel','images/golden-citadel.png','/maps/golden-citadel/')">View Preview</button>
       </div>
     </div>
 
@@ -846,7 +887,55 @@
   </div>
 </section>
 
-<!-- Homepage intentionally ends after map previews. Additional pre-launch information is available through the menu. -->
+<section class="signup-section" aria-labelledby="home-signup-title">
+  <div class="signup-card">
+    <h2 id="home-signup-title">Get notified when downloads go live</h2>
+    <p>No spam. One email when Phase 2 ships.</p>
+    <form class="signup-form" data-subscribe-form novalidate>
+      <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button type="submit">Notify me</button>
+    </form>
+    <div class="signup-status" data-subscribe-status aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="signup-section" aria-labelledby="coming-soon-title">
+  <div class="signup-card">
+    <h2 id="coming-soon-title">Coming Soon</h2>
+    <div class="teaser-grid">
+      <article class="teaser-card">
+        <div class="teaser-visual" aria-hidden="true"></div>
+        <div class="teaser-body"><h3>Project Ember</h3><p>A scorched skyline waits for the first spark to cross the arena.</p><span class="teaser-badge">Reveal pending</span></div>
+      </article>
+      <article class="teaser-card">
+        <div class="teaser-visual" aria-hidden="true"></div>
+        <div class="teaser-body"><h3>Project Tide</h3><p>Moonlit currents pull a hidden battleground toward the surface.</p><span class="teaser-badge">Reveal pending</span></div>
+      </article>
+      <article class="teaser-card">
+        <div class="teaser-visual" aria-hidden="true"></div>
+        <div class="teaser-body"><h3>Project Hollow</h3><p>Ancient stone rings echo around a stage cut from shadow.</p><span class="teaser-badge">Reveal pending</span></div>
+      </article>
+      <article class="teaser-card">
+        <div class="teaser-visual" aria-hidden="true"></div>
+        <div class="teaser-body"><h3>Project Halo</h3><p>A radiant orbit frames a duel above the last safe platform.</p><span class="teaser-badge">Reveal pending</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="signup-section" aria-label="Coming soon notification signup">
+  <div class="signup-card">
+    <h2>Want to know first? Get notified.</h2>
+    <p>No spam. One email when Phase 2 ships.</p>
+    <form class="signup-form" data-subscribe-form novalidate>
+      <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button type="submit">Notify me</button>
+    </form>
+    <div class="signup-status" data-subscribe-status aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- Homepage continues with pre-launch signup and teaser content. Additional information is available through the menu. -->
 
 <footer>
   <div class="footer-logo-row" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
@@ -863,6 +952,7 @@
     <a href="content-policy.html">Content Policy</a>
     <a href="takedown.html">Takedown</a>
     <a href="cookies.html">Cookies</a>
+    <a href="what-is-pandex.html">What is Pandex?</a>
   </div>
   <div class="footer-copy" style="margin-top:16px;">© 2026 PANDEX · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
   <div style="margin-top:10px; font-size:.68rem; letter-spacing:1.6px; text-transform:uppercase; color:rgba(240,244,255,.32); font-weight:600;">
@@ -882,10 +972,11 @@
     document.body.style.overflow = '';
   }
 
-  function openPreview
-(name, src) {
+  function openPreview(name, src, url) {
     document.getElementById('imgPreviewImg').src = src;
     document.getElementById('imgPreviewLabel').textContent = name;
+    var link = document.getElementById('imgPreviewFullPage');
+    if (link) link.href = url || '#maps';
     document.getElementById('imgPreviewOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -1046,6 +1137,41 @@
     });
   })();
 
+  function initSignupForms() {
+    document.querySelectorAll('[data-subscribe-form]').forEach(function(form) {
+      var input = form.querySelector('input[type="email"]');
+      var status = form.parentElement.querySelector('[data-subscribe-status]');
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        var email = input.value.trim();
+        status.className = 'signup-status';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          status.textContent = 'Please enter a valid email address.';
+          status.classList.add('error');
+          return;
+        }
+        status.textContent = 'Saving...';
+        try {
+          var response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: email })
+          });
+          var data = await response.json().catch(function(){ return {}; });
+          if (!response.ok) throw new Error(data.error || 'Signup failed.');
+          form.reset();
+          status.textContent = 'Thanks. We will email you when Phase 2 ships.';
+          status.classList.add('success');
+        } catch (error) {
+          status.textContent = error.message || 'Something went wrong. Please try again.';
+          status.classList.add('error');
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initSignupForms);
+
 </script>
 
 <div id="imgPreviewOverlay" onclick="closePreview()">
@@ -1053,6 +1179,7 @@
   <div id="imgPreviewBox" onclick="event.stopPropagation()">
     <img id="imgPreviewImg" src="" alt="">
     <div id="imgPreviewLabel"></div>
+    <a id="imgPreviewFullPage" class="back-link" href="#maps">Open full page →</a>
   </div>
   <div id="imgPreviewHint">Click outside or press Esc to close</div>
 </div>
