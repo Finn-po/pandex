@@ -891,6 +891,23 @@
     --glow-astral: #6a8cff;
     --glow-crystal: #ff5cc8;
     --glow-citadel: #ffd27a;
+    --gold: #ffb84d;
+    --blue: #6a8cff;
+    --magenta: #ff5470;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255,255,255,0.012) 3px,
+      rgba(255,255,255,0.012) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
   }
   .constellation-hero {
     min-height: max(720px, 100vh);
@@ -921,7 +938,7 @@
     inset: 0;
     pointer-events: none;
   }
-  .constellation-stars { z-index: 1; }
+  .constellation-stars { z-index: 1; will-change: transform; }
   .constellation-particles { z-index: 2; overflow: hidden; }
   .constellation-star {
     position: absolute;
@@ -951,7 +968,7 @@
     animation: particleDrift var(--d) linear infinite;
     animation-delay: var(--delay);
   }
-  .constellation-cards { z-index: 3; }
+  .constellation-cards { z-index: 3; will-change: transform; }
   .constellation-card {
     --rx: 0deg;
     --ry: 0deg;
@@ -1068,6 +1085,17 @@
     color: var(--text-secondary);
     text-shadow: 0 3px 18px rgba(0,0,0,.75);
   }
+  .hero-count {
+    margin-top: var(--space-4);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .hero-count span {
+    color: var(--accent-primary);
+    font-weight: 800;
+  }
   .constellation-copy .hero-actions {
     margin-top: var(--space-8);
     gap: var(--space-4);
@@ -1125,6 +1153,151 @@
     }
   }
 
+  /* ===== EFFECT PASS — ARENAS, CREATOR CARDS, GLOBAL ATMOSPHERE ===== */
+  .section-divider { margin-top: -1px; line-height: 0; overflow: hidden; height: auto; background: none; opacity: 1; }
+  .map-card { position: relative; isolation: isolate; }
+  .map-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: inherit;
+  }
+  .map-preview-wrap { position: relative; overflow: hidden; }
+  .map-card .card-image {
+    clip-path: ellipse(55% 55% at 50% 50%);
+    transition: clip-path 320ms cubic-bezier(0.4, 0, 0.2, 1), transform var(--transition-base);
+    will-change: clip-path, transform;
+  }
+  .map-card:hover .card-image,
+  .map-card:focus-within .card-image { clip-path: ellipse(130% 130% at 50% 50%); }
+  .map-badge, .map-body { position: relative; z-index: 3; }
+  .map-card--celestial::after {
+    width: 2px;
+    height: 2px;
+    inset: 22% auto auto 28%;
+    background: rgba(106,140,255,.75);
+    box-shadow: 42px 18px 0 0 rgba(106,140,255,.6), 92px 48px 0 1px rgba(106,140,255,.48), 168px 26px 0 0 rgba(106,140,255,.62), 220px 78px 0 1px rgba(106,140,255,.54), 132px 112px 0 0 rgba(106,140,255,.44);
+    filter: drop-shadow(0 0 8px rgba(106,140,255,.65));
+    animation: celestialPulse 2.4s steps(1) infinite;
+  }
+  .map-card--astral::after {
+    width: 2px;
+    height: 2px;
+    inset: 24% auto auto 20%;
+    background: rgba(255,255,255,.75);
+    box-shadow: 24px 36px 0 0 rgba(255,255,255,.55), 58px 8px 0 1px rgba(106,140,255,.46), 96px 68px 0 0 rgba(255,255,255,.62), 144px 30px 0 1px rgba(255,255,255,.48), 210px 86px 0 0 rgba(106,140,255,.42), 260px 42px 0 1px rgba(255,255,255,.52);
+    filter: drop-shadow(0 0 8px rgba(106,140,255,.55));
+    animation: astralDrift 4s ease-in-out infinite;
+  }
+  .map-card--crystal::after {
+    background: linear-gradient(90deg, transparent 0 18%, rgba(255,92,200,.45) 18% 22%, transparent 22% 58%, rgba(106,140,255,.28) 58% 62%, transparent 62%), linear-gradient(0deg, transparent 0 48%, rgba(255,84,112,.22) 48% 53%, transparent 53%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transform: translateX(0);
+    animation: crystalGlitch 3.5s infinite;
+  }
+  .map-card--citadel::after {
+    width: 1px;
+    height: 1px;
+    inset: 18% auto auto 30%;
+    background: rgba(255,184,77,.9);
+    box-shadow: 20px 4px 0 0 rgba(255,210,122,.72), 54px 20px 0 1px rgba(255,184,77,.55), 92px 8px 0 0 rgba(255,210,122,.62), 138px 34px 0 1px rgba(255,184,77,.5), 188px 18px 0 0 rgba(255,210,122,.58), 238px 42px 0 1px rgba(255,184,77,.46);
+    filter: drop-shadow(0 0 9px rgba(255,184,77,.68));
+    animation: goldenFall 3s ease-in infinite;
+  }
+  @keyframes celestialPulse { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
+  @keyframes astralDrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes crystalGlitch { 0%, 97%, 100% { opacity: 0; transform: translateX(0); } 98% { opacity: .6; transform: translateX(2px); } 99% { opacity: .3; transform: translateX(-2px); } }
+  @keyframes goldenFall { 0% { transform: translateY(-20px); opacity: 0; } 52% { transform: translateY(20px); opacity: .8; } 100% { transform: translateY(28px); opacity: 0; } }
+  .creator-mini { position: relative; overflow: hidden; }
+  .creator-mini::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 160%;
+    transform: rotate(-12deg);
+    opacity: .12;
+    pointer-events: none;
+  }
+  .creator-mini--brokehalla::before { background: var(--magenta); }
+  .creator-mini--g20::before { background: var(--blue); }
+  .creator-mini > * { position: relative; z-index: 1; }
+  .creator-initials {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: var(--space-4);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .creator-mini--brokehalla .creator-initials { background: rgba(255,84,112,.15); }
+  .creator-mini--g20 .creator-initials { background: rgba(106,140,255,.15); }
+  .creator-mini h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: var(--space-1); }
+  .creator-count { font-size: .85rem; opacity: .55; margin-bottom: var(--space-3); }
+  @keyframes statusPulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+  .badge--coming-soon,
+  [data-status="coming-soon"] .status-badge { animation: statusPulse 2.2s ease-in-out infinite; }
+  .badge--live,
+  [data-status="live"] .status-badge { animation: none; color: #4ade80; }
+  #cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  footer { position: relative; overflow: hidden; }
+  footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: auto;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    background: radial-gradient(ellipse 55% 45% at 15% 85%, rgba(255,184,77,.09) 0%, transparent 70%), radial-gradient(ellipse 45% 40% at 85% 15%, rgba(255,84,112,.09) 0%, transparent 70%);
+    animation: auroraShift 9s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+    pointer-events: none;
+    z-index: 0;
+  }
+  footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(1180px, 90%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(255,184,77,.42), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .footer-grid,
+  .footer-copy { position: relative; z-index: 1; }
+  @keyframes auroraShift {
+    0% { transform: translate3d(-1%, 1%, 0) scale(1); opacity: 1; }
+    50% { transform: translate3d(1%, -1%, 0) scale(1.02); opacity: .7; }
+    100% { transform: translate3d(-.5%, .5%, 0) scale(1); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .map-card::after,
+    .badge--coming-soon,
+    [data-status="coming-soon"] .status-badge,
+    footer::before { animation: none !important; }
+    .map-card .card-image { transition: none; clip-path: none; }
+  }
+
 </style>
 
 </head>
@@ -1158,9 +1331,9 @@
 
 <section class="hero constellation-hero" aria-labelledby="hero-title">
   <!-- Starfield and particles are generated once on load to keep the markup light. -->
-  <div class="constellation-stars" aria-hidden="true"></div>
+  <div class="constellation-stars" aria-hidden="true" data-parallax="slow"></div>
   <div class="constellation-particles" aria-hidden="true"></div>
-  <div class="constellation-cards" aria-hidden="false">
+  <div class="constellation-cards" aria-hidden="false" data-parallax="fast">
     <a class="constellation-card constellation-card--celestial" href="/maps/celestial-storm/" aria-label="View Celestial Storm Arena details">
       <img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena preview" loading="eager">
     </a>
@@ -1178,6 +1351,7 @@
     <div class="eyebrow">PRE-LAUNCH · PHASE 1 LIVE</div>
     <h1 id="hero-title" class="hero-title">Original arena concepts.<br>Forged by independent creators.</h1>
     <p class="hero-sub">A pre-launch hub for fan-made platform-fighter arenas. Previews now, downloads soon.</p>
+    <p class="hero-count"><span id="map-count-ticker">4</span> arenas live in Phase 1</p>
     <div class="hero-actions">
       <a class="btn btn--primary" href="#maps">Browse Arenas →</a>
       <a class="btn btn--secondary" href="#signup">Get notified</a>
@@ -1185,19 +1359,23 @@
   </div>
 </section>
 
+<div class="section-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;"><polygon points="0,40 1440,0 1440,40" fill="var(--bg-base)"/></svg></div>
+
 <section id="maps" class="home-section">
   <div class="home-section-inner">
     <div class="eyebrow">ARENAS</div>
     <h2 class="section-title">Featured Arenas</h2>
     <p class="section-sub">Original arena concepts for platform-fighter communities. Full lore and creator notes live on each arena page.</p>
     <div class="maps-grid">
-      <article class="map-card" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/celestial-storm/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/celestial-storm/'"><div class="map-preview-wrap"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Celestial Storm Arena</h3><p class="map-desc">Fight where thunder, skyships and ancient runes meet above the clouds.</p></div></article>
-      <article class="map-card" style="--arena-glow:#6a8cff;" role="link" tabindex="0" onclick="window.location.href='/maps/astral-observatory/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/astral-observatory/'"><div class="map-preview-wrap"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Astral Observatory</h3><p class="map-desc">Step into a star-forged observatory where every platform feels pulled by cosmic gravity.</p></div></article>
-      <article class="map-card" style="--arena-glow:#ff5470;" role="link" tabindex="0" onclick="window.location.href='/maps/crystal-rift/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/crystal-rift/'"><div class="map-preview-wrap"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Crystal Rift</h3><p class="map-desc">A broken crystal gateway turns the battlefield into a climb through unstable light.</p></div></article>
-      <article class="map-card" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/golden-citadel/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/golden-citadel/'"><div class="map-preview-wrap"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Golden Citadel</h3><p class="map-desc">Duel in a sunlit royal arena built from marble, gold and impossible altitude.</p></div></article>
+      <article class="map-card map-card--celestial" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/celestial-storm/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/celestial-storm/'"><div class="map-preview-wrap"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img card-image"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Celestial Storm Arena</h3><p class="map-desc">Fight where thunder, skyships and ancient runes meet above the clouds.</p></div></article>
+      <article class="map-card map-card--astral" style="--arena-glow:#6a8cff;" role="link" tabindex="0" onclick="window.location.href='/maps/astral-observatory/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/astral-observatory/'"><div class="map-preview-wrap"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img card-image"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Astral Observatory</h3><p class="map-desc">Step into a star-forged observatory where every platform feels pulled by cosmic gravity.</p></div></article>
+      <article class="map-card map-card--crystal" style="--arena-glow:#ff5470;" role="link" tabindex="0" onclick="window.location.href='/maps/crystal-rift/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/crystal-rift/'"><div class="map-preview-wrap"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img card-image"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Crystal Rift</h3><p class="map-desc">A broken crystal gateway turns the battlefield into a climb through unstable light.</p></div></article>
+      <article class="map-card map-card--citadel" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/golden-citadel/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/golden-citadel/'"><div class="map-preview-wrap"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img card-image"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Golden Citadel</h3><p class="map-desc">Duel in a sunlit royal arena built from marble, gold and impossible altitude.</p></div></article>
     </div>
   </div>
 </section>
+
+<div class="section-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;"><polygon points="0,40 1440,0 1440,40" fill="var(--bg-base)"/></svg></div>
 
 <section class="home-section">
   <div class="home-section-inner">
@@ -1208,29 +1386,35 @@
   </div>
 </section>
 
+<div class="section-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;"><polygon points="0,40 1440,0 1440,40" fill="var(--bg-base)"/></svg></div>
+
 <section class="home-section">
   <div class="home-section-inner">
     <div class="eyebrow">CREATORS</div>
     <h2 class="section-title">Meet the Creators</h2>
     <div class="creator-strip">
-      <article class="creator-mini"><div class="avatar-orb" aria-hidden="true"></div><h3>Brokehalla</h3><p>Fantasy arena creator focused on readable worlds, floating platforms and dramatic lighting.</p><a class="btn btn--ghost" href="/creator-brokehalla.html">View profile →</a></article>
-      <article class="creator-mini"><div class="avatar-orb" aria-hidden="true"></div><h3>g20</h3><p>Original arena creator focused on bold silhouettes, crystal scenery and strong stage moods.</p><a class="btn btn--ghost" href="/creator-g20.html">View profile →</a></article>
+      <article class="creator-mini creator-mini--brokehalla"><div class="creator-initials" aria-hidden="true">B</div><h3>Brokehalla</h3><div class="creator-count">4 arenas</div><p>Fantasy arena creator focused on readable worlds, floating platforms and dramatic lighting.</p><a class="btn btn--ghost" href="/creator-brokehalla.html">View profile →</a></article>
+      <article class="creator-mini creator-mini--g20"><div class="creator-initials" aria-hidden="true">g20</div><h3>g20</h3><div class="creator-count">Map assignments pending</div><p>Original arena creator focused on bold silhouettes, crystal scenery and strong stage moods.</p><a class="btn btn--ghost" href="/creator-g20.html">View profile →</a></article>
     </div>
   </div>
 </section>
+
+<div class="section-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;"><polygon points="0,40 1440,0 1440,40" fill="var(--bg-base)"/></svg></div>
 
 <section class="home-section">
   <div class="home-section-inner">
     <div class="eyebrow">ROADMAP</div>
     <h2 class="section-title">Launch Path</h2>
     <div class="phase-strip">
-      <article class="phase-tile"><span class="badge badge--live">✓ Live</span><h3>Phase 1</h3><p>Preview launch and creator profiles.</p></article>
-      <article class="phase-tile"><span class="badge badge--preview">◐ In progress</span><h3>Phase 2</h3><p>Downloads after review workflows are stable.</p></article>
-      <article class="phase-tile"><span class="badge badge--planned">○ Planned</span><h3>Phase 3</h3><p>More creators, categories and games.</p></article>
+      <article class="phase-tile" data-status="live"><span class="badge badge--live status-badge">✓ Live</span><h3>Phase 1</h3><p>Preview launch and creator profiles.</p></article>
+      <article class="phase-tile" data-status="coming-soon"><span class="badge badge--coming-soon status-badge">◐ In progress</span><h3>Phase 2</h3><p>Downloads after review workflows are stable.</p></article>
+      <article class="phase-tile" data-status="coming-soon"><span class="badge badge--planned status-badge">○ Planned</span><h3>Phase 3</h3><p>More creators, categories and games.</p></article>
     </div>
     <a class="btn btn--ghost" href="/roadmap.html">Full roadmap →</a>
   </div>
 </section>
+
+<div class="section-divider" aria-hidden="true"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;"><polygon points="0,40 1440,0 1440,40" fill="var(--bg-base)"/></svg></div>
 
 <section id="signup" class="signup-section" aria-labelledby="home-signup-title">
   <div class="signup-card">
@@ -1478,6 +1662,9 @@
   document.addEventListener('DOMContentLoaded', initSignupForms);
 
 </script>
+<canvas id="cursor-trail" aria-hidden="true"></canvas>
+<script src="/cursor-trail.js" defer></script>
+
 <script>
   (function initConstellationHero(){
     var hero = document.querySelector('.constellation-hero');
@@ -1506,7 +1693,7 @@
       particle.style.setProperty('--c', Math.random() > .5 ? 'var(--glow-celestial)' : 'var(--glow-astral)');
       particles.appendChild(particle);
     }
-    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    if (!('ontouchstart' in window) && matchMedia('(hover: hover) and (pointer: fine)').matches) {
       document.querySelectorAll('.constellation-card').forEach(function(card){
         function tiltCard(event) {
           var rect = card.getBoundingClientRect();
@@ -1524,6 +1711,51 @@
       });
     }
   })();
+
+  (function() {
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+    if ('ontouchstart' in window) return;
+
+    const stars = document.querySelector('[data-parallax="slow"]');
+    const cards = document.querySelector('[data-parallax="fast"]');
+
+    if (!stars && !cards) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (stars) stars.style.transform = `translateY(${y * 0.25}px)`;
+          if (cards) cards.style.transform = `translateY(${y * 0.55}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  (function() {
+    const el = document.getElementById('map-count-ticker');
+    if (!el) return;
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+
+    const target = parseInt(el.textContent, 10);
+    if (isNaN(target)) return;
+    const duration = 600;
+    const start = performance.now();
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      el.textContent = Math.round(easeOut(progress) * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
 </script>
 
 <div id="imgPreviewOverlay" onclick="closePreview()">

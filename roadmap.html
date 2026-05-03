@@ -841,6 +841,31 @@
   .page-content { max-width:980px; }
   .content-card { border-radius:var(--radius-lg); background:var(--bg-card); border-color:var(--border-subtle); }
   .content-card p, .content-card li, .content-card dd { max-width:65ch; }
+  body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,.012) 3px, rgba(255,255,255,.012) 4px);
+    pointer-events:none;
+    z-index:0;
+  }
+  .roadmap-beam {
+    margin:var(--space-6) 0 var(--space-8);
+    padding:var(--space-6);
+    border:1px solid var(--border-subtle);
+    border-radius:var(--radius-lg);
+    background:linear-gradient(180deg, rgba(255,184,77,.06), rgba(255,255,255,.02));
+    overflow:hidden;
+  }
+  .roadmap-phase-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:var(--space-4);
+  }
+  .roadmap-phase-grid .content-card { margin:0; }
+  @media (prefers-reduced-motion: reduce) {
+    .roadmap-beam circle animate { display:none; }
+  }
   @media (max-width:768px) {
     nav { padding:0 var(--space-4); }
     .nav-wordmark { display:none; }
@@ -853,6 +878,7 @@
     .hero-title, .page-title { font-size:var(--text-3xl); }
     .home-section, .signup-section { padding-block:var(--space-16); }
     .creator-strip, .phase-strip { grid-template-columns:1fr; }
+    .roadmap-phase-grid { grid-template-columns:1fr; }
     .cookie-box { border-radius:var(--radius-lg); align-items:flex-start; flex-direction:column; }
     .footer-grid { grid-template-columns:1fr; }
   }
@@ -893,10 +919,40 @@
 </aside>
 
 <section class="page-hero"><div class="hero-bg-orb orb1"></div><div class="hero-bg-orb orb2"></div><div class="page-kicker">Launch phases</div><h1 class="page-title">Roadmap</h1><p class="page-sub">Pandex is launching step by step: previews first, then downloads and creator workflows.</p></section>
-<main class="page-content"><div class="content-card"><h2>Phase 1 — Preview launch</h2><p><strong>Live now (Q2 2026)</strong> — original arena previews, creator profiles, legal pages, FAQ, contact options and submission guidance.</p></div>
-<div class="content-card"><h2>Phase 2 — Downloads</h2><p><strong>Target Q2 2026</strong> — original creator-made arena downloads go live after creator approval rules, takedown process, and content review workflow are stable.</p></div>
+<main class="page-content">
+<div class="roadmap-beam" role="img" aria-label="Pandex Roadmap: Phase 1 completed, Phase 2 Q2 2026, Phase 3 H2 2026">
+  <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible">
+    <!-- Completed beam Phase 1 to midpoint -->
+    <line x1="80" y1="40" x2="400" y2="40" stroke="#ffb84d" stroke-width="3" style="filter:drop-shadow(0 0 5px #ffb84d88)"/>
+    <!-- Future beam Phase 2 to 3 -->
+    <line x1="400" y1="40" x2="720" y2="40" stroke="#ffb84d" stroke-width="3" stroke-dasharray="7 5" opacity="0.35"/>
+
+    <!-- Phase 1 node (live) -->
+    <circle cx="80" cy="40" r="10" fill="#ffb84d"/>
+    <circle cx="80" cy="40" r="18" fill="none" stroke="#ffb84d" stroke-width="1.5" opacity="0.4">
+      <animate attributeName="r" values="12;22;12" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="80" y="68" text-anchor="middle" fill="#ffb84d" font-size="12" font-family="inherit">Phase 1</text>
+    <text x="80" y="20" text-anchor="middle" fill="#ffb84d88" font-size="10" font-family="inherit">Live</text>
+
+    <!-- Phase 2 node -->
+    <circle cx="400" cy="40" r="10" fill="#0a0a0f" stroke="#ffb84d" stroke-width="2" opacity="0.5"/>
+    <text x="400" y="68" text-anchor="middle" fill="#ffffff66" font-size="12" font-family="inherit">Phase 2</text>
+    <text x="400" y="20" text-anchor="middle" fill="#ffffff44" font-size="10" font-family="inherit">Q2 2026</text>
+
+    <!-- Phase 3 node -->
+    <circle cx="720" cy="40" r="10" fill="#0a0a0f" stroke="#ffb84d" stroke-width="2" opacity="0.3"/>
+    <text x="720" y="68" text-anchor="middle" fill="#ffffff44" font-size="12" font-family="inherit">Phase 3</text>
+    <text x="720" y="20" text-anchor="middle" fill="#ffffff33" font-size="10" font-family="inherit">H2 2026</text>
+  </svg>
+</div>
+<div class="roadmap-phase-grid">
+  <div class="content-card"><h2>Phase 1 — Preview launch</h2><p><strong>Live now (Q2 2026)</strong> — original arena previews, creator profiles, legal pages, FAQ, contact options and submission guidance.</p></div>
+  <div class="content-card"><h2>Phase 2 — Downloads</h2><p><strong>Target Q2 2026</strong> — original creator-made arena downloads go live after creator approval rules, takedown process, and content review workflow are stable.</p></div>
+  <div class="content-card"><h2>Phase 3 — More creators &amp; games</h2><p><strong>Target H2 2026</strong> — additional creators, more content categories, and multi-game expansion.</p></div>
+</div>
 <section class="signup-section" aria-labelledby="roadmap-signup-title" style="padding:0;margin:18px 0;"><div class="signup-card"><h2 id="roadmap-signup-title">Get notified when downloads go live</h2><p>No spam. One email when Phase 2 ships.</p><form class="signup-form" data-subscribe-form novalidate><input type="email" name="email" placeholder="you@example.com" autocomplete="email" required><button type="submit">Notify me</button></form><div class="signup-status" data-subscribe-status aria-live="polite"></div></div></section>
-<div class="content-card"><h2>Phase 3 — More creators &amp; games</h2><p><strong>Target H2 2026</strong> — additional creators, more content categories, and multi-game expansion.</p></div>
 <div class="content-card"><p>Dates are targets, not promises. We will update this page as milestones move.</p></div></main>
 <footer>
   <div class="footer-grid">
