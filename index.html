@@ -25,7 +25,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#000000">
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --blue: #00c8ff;
@@ -737,15 +737,163 @@
   @media (max-width:900px){ .teaser-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
   @media (max-width:560px){ .teaser-grid { grid-template-columns:1fr; } .signup-form button { width:100%; } }
 
+
+  /* PANDEX design-system pass */
+  :root {
+    --bg-base: #0a0a0f;
+    --bg-elevated: #14141c;
+    --bg-card: #1a1a24;
+    --border-subtle: #2a2a38;
+    --border-strong: #3a3a4e;
+    --text-primary: #f5f5f7;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6a6a7a;
+    --accent-primary: #ffb84d;
+    --accent-secondary: #6a8cff;
+    --accent-danger: #ff5470;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 999px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-24: 96px;
+    --font-display: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+    --text-4xl: 3.5rem;
+    --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+    --shadow-card-hover: 0 12px 40px rgba(0,0,0,0.6);
+    --transition-base: 200ms ease;
+    --blue: var(--accent-secondary);
+    --purple: var(--accent-danger);
+    --violet: var(--accent-primary);
+    --white: var(--text-primary);
+    --bg: var(--bg-base);
+    --bg2: var(--bg-elevated);
+    --bg3: var(--bg-card);
+    --card: var(--bg-card);
+  }
+  body { background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+  body::before { opacity:.65; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); background-size:160px 160px; }
+  nav { height:72px; background: rgba(10,10,15,.82); border-bottom:1px solid var(--border-subtle); padding:0 var(--space-8); }
+  .nav-logo-icon { height:32px; max-height:40px; }
+  .nav-wordmark { height:18px; max-height:40px; }
+  .menu-panel { width: min(360px, 88vw); background:rgba(10,10,15,.96); border-left:1px solid var(--border-subtle); }
+  .menu-head img, .menu-note, .menu-divider { display:none !important; }
+  .menu-links { padding-top:var(--space-12); }
+  .menu-links a { min-height:48px; display:flex; align-items:center; font-size:var(--text-lg); color:var(--text-primary); }
+  .menu-toggle, .menu-close { border-radius:var(--radius-md); border-color:var(--border-subtle); }
+  .hero { min-height:92vh; padding:140px 5% 110px; background:
+      radial-gradient(circle at 68% 34%, rgba(255,184,77,.18), transparent 34%),
+      radial-gradient(circle at 20% 68%, rgba(106,140,255,.14), transparent 32%),
+      linear-gradient(180deg, rgba(10,10,15,.2), var(--bg-base)); }
+  .hero::after { content:""; position:absolute; inset:0; background:url('images/celestial-storm-arena.png') center/cover no-repeat; opacity:.15; filter:blur(10px) brightness(.55); transform:scale(1.04); z-index:-1; }
+  .hero-logo, .coming-soon-badge, .hero-eyebrow { display:none !important; }
+  .eyebrow { color:var(--accent-primary); font-size:var(--text-xs); letter-spacing:.18em; text-transform:uppercase; font-weight:800; margin-bottom:var(--space-4); }
+  .hero-title, .page-title { font-family:var(--font-display); font-size:clamp(var(--text-3xl), 6vw, var(--text-4xl)); line-height:1.02; letter-spacing:0; color:var(--text-primary); background:none; -webkit-text-fill-color:initial; }
+  .hero-sub, .page-sub, .section-sub { color:var(--text-secondary); font-size:var(--text-lg); max-width:65ch; }
+  .hero-actions { display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap; margin-top:var(--space-8); }
+  section, .page-content { position:relative; z-index:1; }
+  .home-section { padding:var(--space-24) 5%; border-top:1px solid rgba(255,255,255,.06); }
+  .home-section-inner { max-width:1180px; margin:0 auto; }
+  .section-title { font-family:var(--font-display); font-size:var(--text-2xl); color:var(--text-primary); background:none; -webkit-text-fill-color:initial; margin-bottom:var(--space-3); }
+  .section-divider { height:1px; background:linear-gradient(90deg, transparent, var(--accent-primary), transparent); opacity:.45; }
+  .badge { display:inline-flex; align-items:center; border-radius:var(--radius-pill); padding:var(--space-1) var(--space-3); font-size:var(--text-xs); letter-spacing:.14em; text-transform:uppercase; font-weight:800; border:1px solid transparent; }
+  .badge--preview { background:rgba(255,184,77,.12); color:var(--accent-primary); border-color:rgba(255,184,77,.32); }
+  .badge--live { background:rgba(96,240,176,.12); color:#60f0b0; border-color:rgba(96,240,176,.3); }
+  .badge--planned { background:rgba(106,140,255,.12); color:var(--accent-secondary); border-color:rgba(106,140,255,.3); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2); border-radius:var(--radius-md); padding:13px 18px; font-weight:800; text-decoration:none; transition:transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base); cursor:pointer; }
+  .btn:focus-visible, .menu-toggle:focus-visible, .menu-close:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline:2px solid var(--accent-primary); outline-offset:3px; }
+  .btn:hover { transform:scale(1.02); box-shadow:var(--shadow-card); }
+  .btn--primary { background:linear-gradient(135deg,var(--accent-primary),#d37c28); color:#15100a; border:1px solid rgba(255,184,77,.45); }
+  .btn--secondary { background:rgba(255,255,255,.04); color:var(--text-primary); border:1px solid var(--border-strong); }
+  .btn--ghost { color:var(--accent-primary); padding-left:0; padding-right:0; }
+  .tag { display:inline-flex; border-radius:var(--radius-sm); padding:var(--space-1) var(--space-2); background:rgba(255,255,255,.06); color:var(--text-secondary); font-size:var(--text-xs); }
+  .maps-grid { gap:var(--space-6); }
+  .map-card { border-radius:var(--radius-lg); background:var(--bg-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-card); overflow:hidden; cursor:pointer; transition:transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base); }
+  .map-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-card-hover); border-color:var(--arena-glow, var(--accent-primary)); }
+  .map-card:hover .map-preview-img { transform:scale(1.03); }
+  .map-card-link { display:block; color:inherit; text-decoration:none; height:100%; }
+  .map-preview-wrap { display:block; pointer-events:none; border-radius:0; }
+  .map-preview-img { transition:transform var(--transition-base); }
+  .map-zoom-hint, .btn-download, .map-meta { display:none !important; }
+  .map-badge { top:14px; right:14px; border-radius:var(--radius-pill); background:rgba(10,10,15,.72); border:1px solid rgba(255,184,77,.35); color:var(--accent-primary); letter-spacing:.14em; }
+  .map-body { padding:var(--space-6); }
+  .map-name { font-family:var(--font-display); font-size:var(--text-xl); margin-bottom:var(--space-3); color:var(--text-primary); }
+  .creator-line { padding:0; border:0; background:none; color:var(--text-secondary); text-transform:none; letter-spacing:0; font-size:var(--text-sm); margin-bottom:var(--space-3); }
+  .map-card .creator-line::before { content:"by "; color:var(--text-muted); }
+  .map-desc { color:var(--text-secondary); font-size:var(--text-base); margin:0; }
+  .map-desc strong, .map-desc br { display:none; }
+  .map-desc .card-only { display:inline; }
+  .creator-strip, .phase-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-4); }
+  .creator-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .creator-mini, .phase-tile { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:var(--space-6); box-shadow:var(--shadow-card); }
+  .avatar-orb { width:56px; height:56px; border-radius:50%; background:radial-gradient(circle at 35% 25%,var(--accent-primary),var(--accent-secondary)); margin-bottom:var(--space-4); }
+  .signup-section { padding:var(--space-24) 5%; margin:0; border-top:1px solid rgba(255,255,255,.06); max-width:none; }
+  .signup-card { max-width:780px; margin:0 auto; background:linear-gradient(180deg,rgba(26,26,36,.94),rgba(20,20,28,.94)); border-color:var(--border-subtle); border-radius:var(--radius-lg); }
+  .signup-form input { border-color:var(--border-strong); background:rgba(255,255,255,.06); border-radius:var(--radius-md); }
+  .signup-form button { border-radius:var(--radius-md); background:linear-gradient(135deg,var(--accent-primary),#d37c28); color:#15100a; }
+  #cookieBanner { position:fixed; left:var(--space-4); right:var(--space-4); bottom:var(--space-4); z-index:1600; display:block; pointer-events:none; background:transparent; }
+  #cookieBanner.hidden { display:none; }
+  .cookie-box { pointer-events:auto; max-width:900px; margin:0 auto; padding:var(--space-3) var(--space-4); border-radius:var(--radius-pill); background:rgba(20,20,28,.96); border:1px solid var(--border-subtle); box-shadow:var(--shadow-card); display:flex; align-items:center; justify-content:center; gap:var(--space-4); text-align:left; }
+  .cookie-icon, .cookie-title { display:none; }
+  .cookie-text { margin:0; color:var(--text-secondary); font-size:var(--text-sm); }
+  .cookie-btns { display:flex; gap:var(--space-2); margin:0; }
+  .cookie-btns button:not(.cookie-dismiss) { display:none; }
+  .cookie-dismiss { border:1px solid var(--border-strong); background:rgba(255,255,255,.05); color:var(--text-primary); border-radius:var(--radius-pill); padding:8px 12px; cursor:pointer; white-space:nowrap; }
+  footer { background:var(--bg-base); border-top:0; padding:var(--space-16) 5% var(--space-12); }
+  footer::before { content:""; display:block; height:1px; width:100%; max-width:1180px; margin:0 auto var(--space-12); background:linear-gradient(90deg, transparent, rgba(255,184,77,.42), transparent); }
+  .footer-logo { display:none !important; }
+  .footer-wordmark { height:14px; max-width:110px; opacity:.58; }
+  .footer-grid { display:grid; grid-template-columns:1.2fr repeat(3,1fr); gap:var(--space-8); max-width:1180px; margin:0 auto; text-align:left; }
+  .footer-col h3 { color:var(--text-primary); font-size:var(--text-sm); margin-bottom:var(--space-3); }
+  .footer-col a { display:block; color:var(--text-secondary); text-decoration:none; margin:var(--space-2) 0; font-size:var(--text-sm); }
+  .footer-col a:hover { color:var(--accent-primary); }
+  .footer-copy { max-width:1180px; margin:var(--space-8) auto 0 !important; text-align:left; color:var(--text-muted) !important; }
+  .page-content { max-width:980px; }
+  .content-card { border-radius:var(--radius-lg); background:var(--bg-card); border-color:var(--border-subtle); }
+  .content-card p, .content-card li, .content-card dd { max-width:65ch; }
+  @media (max-width:768px) {
+    nav { padding:0 var(--space-4); }
+    .nav-wordmark { display:none; }
+    .menu-panel { width:100vw; height:100vh; left:0; right:0; transform:translateX(100%); border-left:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .menu-panel.active { transform:translateX(0); }
+    .menu-head { position:absolute; top:var(--space-4); right:var(--space-4); width:auto; padding:0; }
+    .menu-links { width:min(320px,80vw); padding:0; align-items:stretch; }
+    .menu-links a { justify-content:center; min-height:56px; font-size:var(--text-xl); }
+    .hero { min-height:86vh; padding:120px 5% 86px; }
+    .hero-title, .page-title { font-size:var(--text-3xl); }
+    .home-section, .signup-section { padding-block:var(--space-16); }
+    .creator-strip, .phase-strip { grid-template-columns:1fr; }
+    .cookie-box { border-radius:var(--radius-lg); align-items:flex-start; flex-direction:column; }
+    .footer-grid { grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:1ms !important; transition-duration:1ms !important; scroll-behavior:auto !important; }
+  }
+
 </style>
 
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo-wrap" href="index.html" aria-label="PANDEX home">
-    <img class="nav-logo-icon" src="images/logo.png" alt="Pandex panda icon">
-    <img class="nav-wordmark" src="images/pandex-wordmark.png" alt="PANDEX">
+  <a class="nav-logo-wrap" href="/index.html" aria-label="PANDEX home">
+    <img class="nav-logo-icon" src="/images/logo.png" alt="Pandex panda icon">
+    <img class="nav-wordmark" src="/images/pandex-wordmark.png" alt="PANDEX">
   </a>
   <button class="menu-toggle" onclick="openMenu()" aria-label="Open navigation menu">
     <span></span><span></span><span></span>
@@ -755,139 +903,77 @@
 <div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
 <aside id="menuPanel" class="menu-panel" aria-label="PANDEX navigation">
   <div class="menu-head">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <img src="images/logo.png" alt="Pandex panda icon">
-      <img src="images/pandex-wordmark.png" alt="PANDEX" style="height:22px;width:auto;max-width:150px;object-fit:contain;">
-    </div>
     <button class="menu-close" onclick="closeMenu()" aria-label="Close navigation menu">×</button>
   </div>
   <div class="menu-links">
-    <a href="index.html" onclick="closeMenu()">Home</a>
-    <a href="index.html#maps" onclick="closeMenu()">Maps</a>
-    <a href="creators.html" onclick="closeMenu()">Creators</a>
-    <a href="about.html" onclick="closeMenu()">About</a>
-    <a href="what-is-pandex.html" onclick="closeMenu()">What is Pandex?</a>
-    <a href="faq.html" onclick="closeMenu()">FAQ</a>
-    <a href="roadmap.html" onclick="closeMenu()">Roadmap</a>
-    <a href="submit.html" onclick="closeMenu()">Submit</a>
-    <a href="contact.html" onclick="closeMenu()">Contact</a>
-    <div class="menu-divider"></div>
-    <a href="privacy.html" onclick="closeMenu()">Privacy</a>
-    <a href="cookies.html" onclick="closeMenu()">Cookies</a>
-    <a href="impressum.html" onclick="closeMenu()">Impressum</a>
-    <a href="terms.html" onclick="closeMenu()">Terms of Service</a>
-    <a href="content-policy.html" onclick="closeMenu()">Content Policy</a>
-    <a href="takedown.html" onclick="closeMenu()">Takedown Policy</a>
+    <a href="/index.html" onclick="closeMenu()">Home</a>
+    <a href="/index.html#maps" onclick="closeMenu()">Maps</a>
+    <a href="/creators.html" onclick="closeMenu()">Creators</a>
+    <a href="/submit.html" onclick="closeMenu()">Submit</a>
+    <a href="/roadmap.html" onclick="closeMenu()">Roadmap</a>
+    <a href="/about.html" onclick="closeMenu()">About</a>
   </div>
-  <div class="menu-note">PANDEX is a pre-launch hub for original arena previews and future downloads.</div>
 </aside>
 
 
 <section class="hero">
-  <div class="hero-bg-orb orb1"></div>
-  <div class="hero-bg-orb orb2"></div>
-  <img class="hero-logo" src="images/logo.png" alt="PANDEX"
-       onclick="window.scrollTo({top:document.getElementById('maps').offsetTop-60,behavior:'smooth'})">
-  <p class="hero-eyebrow">Pre-launch hub for original arena concepts</p>
-  <div class="coming-soon-badge">
-    <span class="cs-pulse"></span>
-    <span class="cs-text">PRE-LAUNCH HUB — DOWNLOADS PLANNED</span>
-  </div>
-  <h1 class="hero-title">Original Arena Concepts.<br>Future Downloads.</h1>
-  <p class="hero-sub">Browse early arena previews while Pandex prepares creator workflows and downloadable releases.</p>
-  <a class="hero-cta" href="#maps">Browse Arena Concepts ↓</a>
-</section>
-
-<section id="maps">
-  <h2 class="section-title">Arena Concepts</h2>
-  <div class="section-divider"></div>
-  <p class="section-sub">A first set of original platform-fighter-inspired arena background concepts. Previews only for now; downloads are planned for a later launch phase.</p>
-
-  <div class="maps-grid">
-
-    <div class="map-card">
-      <a class="map-preview-wrap" href="/maps/celestial-storm/"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
-      <span class="map-badge">PREVIEW</span>
-      <div class="map-body">
-        <a class="map-name" href="/maps/celestial-storm/" style="display:block;text-decoration:none;">Celestial Storm Arena</a>
-        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
-        <div class="map-desc">
-          <strong>Hook:</strong> Fight where thunder, skyships and ancient runes meet above the clouds.<br><br>
-          <strong>Lore:</strong> Celestial Storm Arena hangs in a golden sky, surrounded by drifting airships and storm-lit ruins. The arena feels like a ritual platform built for champions who dare to cross the weather line.<br><br>
-          <strong>Creator Note:</strong> "I wanted this one to feel fast, bright and dramatic before the first hit even lands."
-        </div>
-        <div class="map-meta">
-          <span class="map-tag">Preview only — playable version planned</span>
-          <span class="map-tag">Original artwork</span>
-        </div>
-        <button class="btn-download" onclick="openPreview('Celestial Storm Arena','images/celestial-storm-arena.png','/maps/celestial-storm/')">View Preview</button>
-      </div>
-    </div>
-
-    <div class="map-card">
-      <a class="map-preview-wrap" href="/maps/astral-observatory/"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
-      <span class="map-badge">PREVIEW</span>
-      <div class="map-body">
-        <a class="map-name" href="/maps/astral-observatory/" style="display:block;text-decoration:none;">Astral Observatory</a>
-        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
-        <div class="map-desc">
-          <strong>Hook:</strong> Step into a star-forged observatory where every platform feels pulled by cosmic gravity.<br><br>
-          <strong>Lore:</strong> Astral Observatory floats between deep space and a blue-gold portal core. Its side platforms and glowing machinery suggest an old research station still tracking movements beyond the visible sky.<br><br>
-          <strong>Creator Note:</strong> "This concept started with the idea of a quiet place that could suddenly become a battle stage."
-        </div>
-        <div class="map-meta">
-          <span class="map-tag">Preview only — playable version planned</span>
-          <span class="map-tag">Original artwork</span>
-        </div>
-        <button class="btn-download" onclick="openPreview('Astral Observatory','images/astral-observatory.png','/maps/astral-observatory/')">View Preview</button>
-      </div>
-    </div>
-
-    <div class="map-card">
-      <a class="map-preview-wrap" href="/maps/crystal-rift/"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
-      <span class="map-badge">PREVIEW</span>
-      <div class="map-body">
-        <a class="map-name" href="/maps/crystal-rift/" style="display:block;text-decoration:none;">Crystal Rift</a>
-        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
-        <div class="map-desc">
-          <strong>Hook:</strong> A broken crystal gateway turns the battlefield into a climb through unstable light.<br><br>
-          <strong>Lore:</strong> Crystal Rift opens inside a shattered ruin where floating stones orbit a glowing vertical tear. The scene suggests a place where old magic cracked the ground and left the sky shining through the wound.<br><br>
-          <strong>Creator Note:</strong> "I liked the tension of making something beautiful feel a little dangerous."
-        </div>
-        <div class="map-meta">
-          <span class="map-tag">Preview only — playable version planned</span>
-          <span class="map-tag">Original artwork</span>
-        </div>
-        <button class="btn-download" onclick="openPreview('Crystal Rift','images/crystal-rift.png','/maps/crystal-rift/')">View Preview</button>
-      </div>
-    </div>
-
-    <div class="map-card">
-      <a class="map-preview-wrap" href="/maps/golden-citadel/"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"><div class="map-zoom-hint">Open full page</div></a>
-      <span class="map-badge">PREVIEW</span>
-      <div class="map-body">
-        <a class="map-name" href="/maps/golden-citadel/" style="display:block;text-decoration:none;">Golden Citadel</a>
-        <a class="creator-line" href="creator-brokehalla.html">Creator: Brokehalla</a>
-        <div class="map-desc">
-          <strong>Hook:</strong> Duel in a sunlit royal arena built from marble, gold and impossible altitude.<br><br>
-          <strong>Lore:</strong> Golden Citadel rises above the clouds like a ceremonial fortress for legendary matches. Its bright stonework, warm gold details and distant castle scenery give the map a regal, high-stakes atmosphere.<br><br>
-          <strong>Creator Note:</strong> "This one is meant to feel clean, heroic and instantly readable as a grand arena."
-        </div>
-        <div class="map-meta">
-          <span class="map-tag">Preview only — playable version planned</span>
-          <span class="map-tag">Original artwork</span>
-        </div>
-        <button class="btn-download" onclick="openPreview('Golden Citadel','images/golden-citadel.png','/maps/golden-citadel/')">View Preview</button>
-      </div>
-    </div>
-
-  </div>
-  <div class="install-note" style="margin-top:22px;">
-    Downloads are not public yet. Pandex is currently shaping the preview catalog, creator workflow and release process before downloadable files go live.
+  <div class="eyebrow">PRE-LAUNCH · PHASE 1 LIVE</div>
+  <h1 class="hero-title">Original arena concepts.<br>Built by independent creators.</h1>
+  <p class="hero-sub">A pre-launch hub for fan-made platform-fighter arenas. Previews now, downloads soon.</p>
+  <div class="hero-actions">
+    <a class="btn btn--primary" href="#maps">Browse Arenas →</a>
+    <a class="btn btn--secondary" href="#notify">Get notified</a>
   </div>
 </section>
 
-<section class="signup-section" aria-labelledby="home-signup-title">
+<section id="maps" class="home-section">
+  <div class="home-section-inner">
+    <div class="eyebrow">ARENAS</div>
+    <h2 class="section-title">Featured Arenas</h2>
+    <p class="section-sub">Original arena concepts for platform-fighter communities. Full lore and creator notes live on each arena page.</p>
+    <div class="maps-grid">
+      <article class="map-card" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/celestial-storm/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/celestial-storm/'"><div class="map-preview-wrap"><img src="images/celestial-storm-arena.png" alt="Celestial Storm Arena" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Celestial Storm Arena</h3><p class="map-desc">Fight where thunder, skyships and ancient runes meet above the clouds.</p></div></article>
+      <article class="map-card" style="--arena-glow:#6a8cff;" role="link" tabindex="0" onclick="window.location.href='/maps/astral-observatory/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/astral-observatory/'"><div class="map-preview-wrap"><img src="images/astral-observatory.png" alt="Astral Observatory" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Astral Observatory</h3><p class="map-desc">Step into a star-forged observatory where every platform feels pulled by cosmic gravity.</p></div></article>
+      <article class="map-card" style="--arena-glow:#ff5470;" role="link" tabindex="0" onclick="window.location.href='/maps/crystal-rift/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/crystal-rift/'"><div class="map-preview-wrap"><img src="images/crystal-rift.png" alt="Crystal Rift" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Crystal Rift</h3><p class="map-desc">A broken crystal gateway turns the battlefield into a climb through unstable light.</p></div></article>
+      <article class="map-card" style="--arena-glow:#ffb84d;" role="link" tabindex="0" onclick="window.location.href='/maps/golden-citadel/'" onkeydown="if(event.key==='Enter') window.location.href='/maps/golden-citadel/'"><div class="map-preview-wrap"><img src="images/golden-citadel.png" alt="Golden Citadel" class="map-preview-img"></div><span class="map-badge badge badge--preview">Preview</span><div class="map-body"><a class="creator-line" href="/creator-brokehalla.html" onclick="event.stopPropagation()">Brokehalla</a><h3 class="map-name">Golden Citadel</h3><p class="map-desc">Duel in a sunlit royal arena built from marble, gold and impossible altitude.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section-inner">
+    <div class="eyebrow">PLATFORM</div>
+    <h2 class="section-title">What is Pandex?</h2>
+    <p class="section-sub">Pandex is a pre-launch hub for original, fan-made arena concepts built for platform-fighter communities. It separates visual previews from future downloads so visitors always know what is live and what is still planned.</p>
+    <a class="btn btn--ghost" href="/about.html">Learn more →</a>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section-inner">
+    <div class="eyebrow">CREATORS</div>
+    <h2 class="section-title">Meet the Creators</h2>
+    <div class="creator-strip">
+      <article class="creator-mini"><div class="avatar-orb" aria-hidden="true"></div><h3>Brokehalla</h3><p>Fantasy arena creator focused on readable worlds, floating platforms and dramatic lighting.</p><a class="btn btn--ghost" href="/creator-brokehalla.html">View profile →</a></article>
+      <article class="creator-mini"><div class="avatar-orb" aria-hidden="true"></div><h3>g20</h3><p>Original arena creator focused on bold silhouettes, crystal scenery and strong stage moods.</p><a class="btn btn--ghost" href="/creator-g20.html">View profile →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section-inner">
+    <div class="eyebrow">ROADMAP</div>
+    <h2 class="section-title">Launch Path</h2>
+    <div class="phase-strip">
+      <article class="phase-tile"><span class="badge badge--live">✓ Live</span><h3>Phase 1</h3><p>Preview launch and creator profiles.</p></article>
+      <article class="phase-tile"><span class="badge badge--preview">◐ In progress</span><h3>Phase 2</h3><p>Downloads after review workflows are stable.</p></article>
+      <article class="phase-tile"><span class="badge badge--planned">○ Planned</span><h3>Phase 3</h3><p>More creators, categories and games.</p></article>
+    </div>
+    <a class="btn btn--ghost" href="/roadmap.html">Full roadmap →</a>
+  </div>
+</section>
+
+<section id="notify" class="signup-section" aria-labelledby="home-signup-title">
   <div class="signup-card">
     <h2 id="home-signup-title">Get notified when downloads go live</h2>
     <p>No spam. One email when Phase 2 ships.</p>
@@ -899,65 +985,39 @@
   </div>
 </section>
 
-<section class="signup-section" aria-labelledby="coming-soon-title">
-  <div class="signup-card">
-    <h2 id="coming-soon-title">Coming Soon</h2>
-    <div class="teaser-grid">
-      <article class="teaser-card">
-        <div class="teaser-visual" aria-hidden="true"></div>
-        <div class="teaser-body"><h3>Project Ember</h3><p>A scorched skyline waits for the first spark to cross the arena.</p><span class="teaser-badge">Reveal pending</span></div>
-      </article>
-      <article class="teaser-card">
-        <div class="teaser-visual" aria-hidden="true"></div>
-        <div class="teaser-body"><h3>Project Tide</h3><p>Moonlit currents pull a hidden battleground toward the surface.</p><span class="teaser-badge">Reveal pending</span></div>
-      </article>
-      <article class="teaser-card">
-        <div class="teaser-visual" aria-hidden="true"></div>
-        <div class="teaser-body"><h3>Project Hollow</h3><p>Ancient stone rings echo around a stage cut from shadow.</p><span class="teaser-badge">Reveal pending</span></div>
-      </article>
-      <article class="teaser-card">
-        <div class="teaser-visual" aria-hidden="true"></div>
-        <div class="teaser-body"><h3>Project Halo</h3><p>A radiant orbit frames a duel above the last safe platform.</p><span class="teaser-badge">Reveal pending</span></div>
-      </article>
-    </div>
-  </div>
-</section>
 
-<section class="signup-section" aria-label="Coming soon notification signup">
-  <div class="signup-card">
-    <h2>Want to know first? Get notified.</h2>
-    <p>No spam. One email when Phase 2 ships.</p>
-    <form class="signup-form" data-subscribe-form novalidate>
-      <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-      <button type="submit">Notify me</button>
-    </form>
-    <div class="signup-status" data-subscribe-status aria-live="polite"></div>
-  </div>
-</section>
 
 <!-- Homepage continues with pre-launch signup and teaser content. Additional information is available through the menu. -->
 
 <footer>
-  <div class="footer-logo-row" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-    <img class="footer-logo" src="images/logo.png" alt="Pandex panda icon">
-    <img class="footer-wordmark" src="images/pandex-wordmark.png" alt="PANDEX">
+  <div class="footer-grid">
+    <div class="footer-brand-block">
+      <img class="footer-wordmark" src="/images/pandex-wordmark.png" alt="PANDEX">
+      <p>Pre-launch hub for original arena previews and future downloads.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Pandex</h3>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h3>Creators</h3>
+      <a href="/creators.html">Creators</a>
+      <a href="/submit.html">Submit</a>
+    </div>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/content-policy.html">Content Policy</a>
+      <a href="/takedown.html">Takedown</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/impressum.html">Impressum</a>
+    </div>
   </div>
-  <div style="font-size:.8rem; color:rgba(240,244,255,.5); margin-bottom:18px; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.6;">
-    Pre-launch hub for original arena previews and future downloads.
-  </div>
-  <div class="footer-links footer-legal-links">
-    <a href="privacy.html">Privacy</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="terms.html">Terms</a>
-    <a href="content-policy.html">Content Policy</a>
-    <a href="takedown.html">Takedown</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="what-is-pandex.html">What is Pandex?</a>
-  </div>
-  <div class="footer-copy" style="margin-top:16px;">© 2026 PANDEX · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
-  <div style="margin-top:10px; font-size:.68rem; letter-spacing:1.6px; text-transform:uppercase; color:rgba(240,244,255,.32); font-weight:600;">
-    Created by <span style="background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;">Pandapages</span>
-  </div>
+  <div class="footer-copy">© 2026 PANDEX · Unofficial fan-made project. All trademarks belong to their respective owners.</div>
 </footer>
 
 <script>
@@ -989,23 +1049,10 @@
   });
 
   // ── COOKIE CONSENT (GDPR / EU) ──
-  const CONSENT_KEY = 'pandex_consent';
+  const COOKIE_NOTICE_KEY = 'pandex_cookie_notice_dismissed';
 
-  function setCookieConsent(value) {
-    var exp = new Date();
-    exp.setDate(exp.getDate() + 365);
-    document.cookie = CONSENT_KEY + '=' + value + ';expires=' + exp.toUTCString() + ';path=/;SameSite=Lax';
-  }
-  function getCookieConsent() {
-    var match = document.cookie.match(new RegExp('(^| )' + CONSENT_KEY + '=([^;]+)'));
-    return match ? match[2] : null;
-  }
-  function acceptCookies() {
-    setCookieConsent('all');
-    hideConsentModal();
-  }
-  function rejectCookies() {
-    setCookieConsent('essential');
+  function dismissCookieNotice() {
+    localStorage.setItem(COOKIE_NOTICE_KEY, 'true');
     hideConsentModal();
   }
 
@@ -1132,8 +1179,7 @@
 
   (function initConsent() {
     document.addEventListener('DOMContentLoaded', function() {
-      var consent = getCookieConsent();
-      if (!consent) showConsentModal();
+      if (localStorage.getItem(COOKIE_NOTICE_KEY) !== 'true') showConsentModal();
     });
   })();
 
@@ -1186,16 +1232,11 @@
 
 <div id="cookieBanner" class="hidden">
   <div class="cookie-box">
-    <div class="cookie-icon">🍪</div>
-    <div class="cookie-title">We Use Cookies</div>
     <div class="cookie-text">
-      This website uses technically necessary cookies, for example to remember your cookie choice. Optional tracking, analytics or advertising services are not active right now. If such services are added in the future, they will only be activated after updated information and a new choice where consent is legally required. Details are available in our
-      <a href="privacy.html">Privacy Policy</a> and <a href="impressum.html">Impressum</a>.
+      This site uses only technically necessary cookies. <a href="/cookies.html">Learn more</a>
     </div>
     <div class="cookie-btns">
-      <button class="btn-cookie-accept" onclick="acceptCookies()">Accept all</button>
-      <button class="btn-cookie-reject" onclick="rejectCookies()">Necessary only</button>
-      <button class="btn-cookie-settings" onclick="window.location.href='privacy.html'">Learn more</button>
+      <button class="cookie-dismiss" onclick="dismissCookieNotice()">Got it ✕</button>
     </div>
   </div>
 </div>
